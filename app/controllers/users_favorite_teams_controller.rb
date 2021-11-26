@@ -1,0 +1,2 @@
+class UsersFavoriteTeamsController < ApplicationController
+end

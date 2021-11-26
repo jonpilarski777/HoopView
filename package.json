@@ -1,8 +1,8 @@
 {
-    "name": "example-project",
+    "name": "HoopView",
     "description": "Build scripts for Heroku",
     "engines": {
-      "node": ">= 14"
+      "node": "16.6.0"
     },
     "scripts": {
       "build": "npm install --prefix client && npm run build --prefix client",
