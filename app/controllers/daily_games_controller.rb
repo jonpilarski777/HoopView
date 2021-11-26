@@ -1,0 +1,2 @@
+class DailyGamesController < ApplicationController
+end
