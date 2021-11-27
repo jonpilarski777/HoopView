@@ -64,7 +64,20 @@ favorite_teams = FavoriteTeam.create(teams_list)
 
 
 puts "Seeding Schedules"
+schedules = Schedule.create([
+    {date: Time.utc(2021, 12, 10, 11),
+    venue: "Mackey Arena",
+    home: 1,
+    favorite_team_id:  
 
+    
+    
+    }
+
+
+
+
+])
 
 puts "Seeding user daily games"
 

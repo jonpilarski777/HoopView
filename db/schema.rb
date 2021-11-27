@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_26_182358) do
+ActiveRecord::Schema.define(version: 2021_11_27_204414) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,9 +35,8 @@ ActiveRecord::Schema.define(version: 2021_11_26_182358) do
     t.string "opponent"
     t.string "venue"
     t.datetime "date"
-    t.datetime "time"
     t.boolean "home"
-    t.integer "favorite_team"
+    t.integer "favorite_team_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -54,7 +53,7 @@ ActiveRecord::Schema.define(version: 2021_11_26_182358) do
     t.decimal "to_forced"
     t.integer "games"
     t.decimal "three_pt_percentage_allowed"
-    t.integer "favorite_teams_id"
+    t.integer "favorite_team_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
