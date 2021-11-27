@@ -47,19 +47,19 @@ favorite_teams = FavoriteTeam.create(teams_list)
 
 
 
-puts "Seeding user Favorite Teams"
-users.length.times do |t|
-    user_id = users[t].id
-    favorite_teams.length.times do |z|
-        favorite_team_id = favorite_teams[z].id
-        teamName = team_samples
-        UsersFavoriteTeam.create({ 
-            user_id: user_id,
-            favorite_team_id: favorite_team_id,
-            teamName: teamName
-         })
-    end
-end
+# puts "Seeding user Favorite Teams"
+# users.length.times do |t|
+#     user_id = users[t].id
+#     favorite_teams.length.times do |z|
+#         favorite_team_id = favorite_teams[z].id
+#         teamName = team_samples
+#         UsersFavoriteTeam.create({ 
+#             user_id: user_id,
+#             favorite_team_id: favorite_team_id,
+#             teamName: teamName
+#          })
+#     end
+# end
 
 
 
