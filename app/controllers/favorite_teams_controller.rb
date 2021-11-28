@@ -1,3 +1,0 @@
-class FavoriteTeamsController < ApplicationController
-
-end
