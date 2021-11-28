@@ -1,0 +1,2 @@
+class UserFavoriteTeam < ApplicationRecord
+end

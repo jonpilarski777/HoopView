@@ -1,0 +1,2 @@
+class DailyGame < ApplicationRecord
+end
