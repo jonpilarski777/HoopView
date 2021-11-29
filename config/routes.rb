@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+
+
+  namespace :api do 
+    get "/me", to: "users#show"
+    post "/signup", to: "users#create"
+    post "/login", to: "sessions#create"
+    delete "/logout", to: "sessions#destroy"
+  end
   # resources :team_stats
   # resources :daily_games
   # resources :user_daily_games
