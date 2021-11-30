@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::API
     include ActionController::Cookies
-    # rescue_from ActiveRecord::RecordNotFound, with: :not_found
+    rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
-    # before_action :confirm_authentication
+    before_action :confirm_authentication
   
 
     def hello_world
@@ -13,21 +13,21 @@ class ApplicationController < ActionController::API
     private
   #Make sure to change tc current_user from this later...
     def current_user
-        User.first
-    #   @current_user ||= User.find_by(id: session[:user_id])
+        # User.first
+      @current_user ||= User.find_by(id: session[:user_id])
+    end
+#(put !! in front later)
+    def logged_in?
+      !!current_user 
     end
   
-    # def logged_in?
-    #   current_user (put !! in front later)
-    # end
+    def confirm_authentication
+      render json: { error: "You must be logged in to do that." }, status: :unauthorized unless logged_in?
+    end
   
-    # def confirm_authentication
-    #   render json: { error: "You must be logged in to do that." }, status: :unauthorized unless logged_in?
-    # end
-  
-    # def not_found(e)
-    #   render json: { error: e.message }, status: :not_found
-    # end
+    def not_found(e)
+      render json: { error: e.message }, status: :not_found
+    end
 
   
 end
