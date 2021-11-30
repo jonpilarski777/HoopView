@@ -47,9 +47,11 @@ users.length.times do |t|
     favorite_teams.length.times do |z|
         favorite_team_id = favorite_teams[z].id
         teamName = team_samples
+        team = "Arizona State"
         UserFavoriteTeam.create({ 
             user_id: user_id,
-            favorite_team_id: favorite_team_id
+            favorite_team_id: favorite_team_id,
+            team: team
          })
     end
 end

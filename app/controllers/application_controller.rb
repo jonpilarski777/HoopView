@@ -10,11 +10,12 @@ class ApplicationController < ActionController::API
         render json: { count: session[:count] }
     end
 
-    # private
-  
-    # def current_user
+    private
+  #Make sure to change tc current_user from this later...
+    def current_user
+        User.first
     #   @current_user ||= User.find_by(id: session[:user_id])
-    # end
+    end
   
     # def logged_in?
     #   current_user (put !! in front later)

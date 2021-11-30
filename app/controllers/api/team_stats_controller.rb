@@ -4,6 +4,6 @@ class Api::TeamStatsController < ApplicationController
     end
 
     def show 
-        render json: TeamStat.find(params[:id])
+        render json: TeamStat.find(params[:id]), status: :ok
     end
 end

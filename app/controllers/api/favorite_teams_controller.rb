@@ -5,7 +5,7 @@ class Api::FavoriteTeamsController < ApplicationController
     end
 
     def show 
-        render json: FavoriteTeam.find(params[:id])
+        render json: FavoriteTeam.find(params[:id]), status: :ok
     end
 
 end
