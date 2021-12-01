@@ -1,10 +1,20 @@
-import React from 'react'
-import {Switch, Route, NavLink } from "react-router-dom";
-import DailyGamesContainer from './DailyGamesContainer.js';
-import TeamView from './TeamView.js';
+import React, {useState} from 'react'
+import {Switch, Route, NavLink } from 'react-router-dom'
+import DailyGamesContainer from './DailyGamesContainer.js'
+import TeamView from './TeamView.js'
 
 function AuthenticatedApp({currentUser, setCurrentUser, setAuthChecked}) {
-    
+    const [teams, setTeams] = useState([])
+
+    // useEffect(() => {
+    //   fetch('/api/user_favorite_teams')
+    //   .then(res => res.json())
+    //   .then(teams => setTeams(teams))
+
+    // } , [])
+
+
+
     const handleLogout = () => {
         fetch(`/api/logout`, {
           method: 'DELETE'
@@ -16,23 +26,19 @@ function AuthenticatedApp({currentUser, setCurrentUser, setAuthChecked}) {
             }
           })
       }
-    
-    
-    
     return (
         <>
         <nav>
             <span>
                 <NavLink to= "/user_daily_games"> Daily Games</NavLink>
-                <NavLink to= "/user_favorite_teams"> Daily Games</NavLink>
+                <NavLink to= "/user_favorite_teams"> Favorite Teams</NavLink>
             </span>
             <span> Logged in as {currentUser.username} <button onClick= {handleLogout}>Logout</button>
             </span>
         </nav>
             <Switch>
-                <Route path="user_daily_games">
+                <Route path="/user_daily_games">
                     <DailyGamesContainer currentUser = {currentUser}/>
-
                 </Route>
                 <Route path="/user_favorite_teams">
                     <TeamView 
