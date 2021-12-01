@@ -1,24 +1,23 @@
 class ApplicationController < ActionController::API
     include ActionController::Cookies
-    rescue_from ActiveRecord::RecordNotFound, with: :not_found
+     rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
     before_action :confirm_authentication
-  
+     
 
-    def hello_world
-        session[:count] = (session[:count] || 0) + 1
-        render json: { count: session[:count] }
-    end
+    # def hello_world
+    #     session[:count] = (session[:count] || 0) + 1
+    #     render json: { count: session[:count] }
+    # end
 
     private
   #Make sure to change tc current_user from this later...
     def current_user
-        # User.first
       @current_user ||= User.find_by(id: session[:user_id])
     end
-#(put !! in front later)
+
     def logged_in?
-      !!current_user 
+     !!current_user 
     end
   
     def confirm_authentication
