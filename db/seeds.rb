@@ -58,7 +58,7 @@ end
 
 puts "Seeding Schedules"
 schedules = Schedule.create([
-    {date: Time.utc(2021, 12, 10, 11),
+    {date: Time.new(2021, 12, 10, 11),
     opponent: "Northwestern",
     venue: "Mackey Arena",
     home: 1,
@@ -68,7 +68,7 @@ schedules = Schedule.create([
 
 puts "Seeding daily games"
 daily_games = DailyGame.create([
-    date: Time.utc(2021, 12, 5, 11, 30),
+    date: Time.new(2021, 12, 5, 11, 30),
     matchup: "Duke vs. North Carolina",
     venue: "Madison Square Garden"
 ])

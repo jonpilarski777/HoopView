@@ -4,22 +4,22 @@ Rails.application.routes.draw do
   namespace :api do
 
     resources :user_favorite_teams
-    get "/favorite_teams/:id", to: "favorite_teams#show"
-    get "/favorite_teams", to: "favorite_teams#index"
+    get '/favorite_teams/:id', to: 'favorite_teams#show'
+    get '/favorite_teams', to: 'favorite_teams#index'
 
-    get "/schedules/:id", to: "schedules#show"
-    get "/schedules", to: "schedules#index"
+    get '/schedules/:id', to: 'schedules#show'
+    get '/schedules', to: 'schedules#index'
 
-    get "/team_stats/:id", to: "team_stats#show"
-    get "/team_stats", to: "team_stats#index"
+    get '/team_stats/:id', to: 'team_stats#show'
+    get '/team_stats', to: 'team_stats#index'
 
-    get "/daily_games", to: "daily_games#index"
-    get "/user_daily_games", to: "user_daily_games#index"
+    get '/daily_games', to: 'daily_games#index'
+    get '/user_daily_games', to: 'user_daily_games#index'
 
-    get "/me", to: "users#show"
-    post "/signup", to: "users#create"
-    post "/login", to: "sessions#create"
-    delete "/logout", to: "sessions#destroy"
+    # get '/me', to: 'users#show'
+    # post '/signup', to: 'users#create'
+    # post '/login', to: 'sessions#create'
+    # delete '/logout', to: 'sessions#destroy'
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
