@@ -1,6 +1,9 @@
 import './App.css';
 import { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import AuthenticatedApp from './components/AuthenticatedApp';
+import UnauthenticatedApp from './components/UnauthenticatedApp';
+
 
 function App() {
   const [count, setCount] = useState(0);
