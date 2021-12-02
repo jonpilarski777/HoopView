@@ -21,7 +21,7 @@ class Api::UserFavoriteTeamsController < ApplicationController
 
     def update
         if @user_favorite_team.update(update_user_favorite_team_params)
-            render json: @user_favorite_team, status: :created
+            render json: @user_favorite_team, status: :ok
         else
             render json: @user_favorite_team.errors.full_messages, status: :unprocessable_entity
         end
@@ -29,7 +29,7 @@ class Api::UserFavoriteTeamsController < ApplicationController
 
     def destroy 
         @user_favorite_team.destroy
-        render json: {message: "Favorite team has been removed"}
+        render json: @user_favorite_team
     end
 
     private
@@ -48,7 +48,7 @@ class Api::UserFavoriteTeamsController < ApplicationController
     end
 
     def update_user_favorite_team_params
-        params.permit(:team)
+        params.permit(:team, :user_id, :favorite_team_id)
     end
 
 end
