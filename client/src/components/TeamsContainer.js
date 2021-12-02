@@ -12,10 +12,10 @@ function TeamContainer() {
             credentials: 'include'
         })
         .then(r => r.json())
-        .then(console.log("TeamsContainerfetch", teams))
+        .then(teams => setTeams(teams))
     }, [])
 
-    // teams => setTeams(teams)
+    // 
     return (
         <div>
             <Switch>
