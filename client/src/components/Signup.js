@@ -1,14 +1,14 @@
 import React, {useState} from 'react'
-import {Link} from 'react-router-dom'
+import {useHistory, Link} from 'react-router-dom'
 
 function Signup({setCurrentUser}) {
-    // const history = useHistory()
+    const history = useHistory()
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [passwordConfirmation, setPasswordConfirmation] = useState('')
     
-    const handleSubmit = (event) => {
-      event.preventDefault()
+    const handleSubmit = (e) => {
+      e.preventDefault()
       fetch('/api/signup', {
         method: 'POST',
         headers: {
@@ -24,6 +24,7 @@ function Signup({setCurrentUser}) {
           if (res.ok) {
             res.json().then(user => {
               setCurrentUser(user)
+              history.push('/favorite_teams')
             })
           } else {
             res.json().then(errors => {

@@ -5,12 +5,10 @@ import AuthenticatedApp from './AuthenticatedApp';
 import UnauthenticatedApp from './UnauthenticatedApp';
 
 
-
 function App() {
-  // const [count, setCount] = useState(0);
   const [ currentUser, setCurrentUser] = useState(null)
   const [authChecked, setAuthChecked] = useState(false)
-
+  // const [count, setCount] = useState(0);
   // useEffect(() => {
   //   fetch("/hello")
   //     .then((r) => r.json())

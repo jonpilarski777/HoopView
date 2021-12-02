@@ -18,8 +18,8 @@ function Login({ setCurrentUser }) {
         .then(res => {
           if (res.ok) {
             res.json().then(user => {
-              setCurrentUser({user})
-              history.push('/api/favorite_teams')
+              setCurrentUser(user)
+              history.push('/favorite_teams')
             })
           } else {
             res.json().then(errors => {
@@ -31,39 +31,39 @@ function Login({ setCurrentUser }) {
 
 return (
     <div>
-    <Redirect to="/" />
-        <form onSubmit={handleSubmit}>
-            <h1>Log In</h1>
-            <p>
-            <label 
-                htmlFor="username"
-            >
-                Username
-            </label>
-            <input
-                type="text"
-                name="username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-            />
-            </p>
-            <p>
-            <label 
-                htmlFor="password"
-            >
-                Password
-            </label>
-            <input
-                type="password"
-                name=""
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
-            </p>
-            <p><button type="submit">Log In</button></p>
-            <p>-- or --</p> */}
-            <p><Link to="/signup">Sign Up</Link></p>
-        </form>         
+      <Redirect to="/" />
+          <form onSubmit={handleSubmit}>
+              <h1>Log In</h1>
+              <p>
+                <label 
+                    htmlFor="username"
+                >
+                    Username
+                </label>
+                <input
+                    type="text"
+                    name="username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                />
+              </p>
+              <p>
+                <label 
+                    htmlFor="password"
+                >
+                    Password
+                </label>
+                <input
+                    type="password"
+                    name=""
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+              </p>
+              <p><button type="submit">Log In</button></p>
+              <p>-- or --</p> */
+              <p><Link to="/signup">Sign Up</Link></p>
+          </form>         
     </div>
     )
 }

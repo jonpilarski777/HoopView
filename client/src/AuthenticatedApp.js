@@ -1,7 +1,6 @@
 import React from 'react'
 import {Switch, Route, NavLink } from 'react-router-dom'
-import DailyGamesContainer from './DailyGamesContainer.js'
-import TeamView from './TeamView.js'
+
 
 function AuthenticatedApp({currentUser, setCurrentUser, setAuthChecked}) {
   

@@ -1,7 +1,7 @@
 import React from 'react'
-import {Switch, Route, Redirect} from 'react-router-dom'
-import Signup from './Signup'
-import Login from './Login'
+import { Switch, Route, Redirect } from 'react-router-dom'
+import Signup from './components/Signup'
+import Login from './components/Login'
 
 
 function UnauthenticatedApp({setCurrentUser}) {
