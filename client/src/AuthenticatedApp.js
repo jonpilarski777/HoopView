@@ -29,13 +29,13 @@ function AuthenticatedApp({currentUser, setCurrentUser}) {
             handleLogout={handleLogout}
           />
           <Switch>
-            <Route path="/favorite_teams">
+            <Route path="/teams">
                 <TeamsContainer/>
             </Route>
-            <Route path="/daily_games">
+            <Route path="/games">
                 <GamesContainer/>
             </Route>
-            <Redirect to= "/favorite_teams" />
+            <Redirect to= "/teams" />
           </Switch>
         </>
       );

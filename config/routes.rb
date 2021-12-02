@@ -16,10 +16,10 @@ Rails.application.routes.draw do
     get '/daily_games', to: 'daily_games#index'
     get '/user_daily_games', to: 'user_daily_games#index'
 
-    # get '/me', to: 'users#show'
-    # post '/signup', to: 'users#create'
-    # post '/login', to: 'sessions#create'
-    # delete '/logout', to: 'sessions#destroy'
+    get '/me', to: 'users#show'
+    post '/signup', to: 'users#create'
+    post '/login', to: 'sessions#create'
+    delete '/logout', to: 'sessions#destroy'
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
