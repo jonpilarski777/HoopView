@@ -1,8 +1,8 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import AuthenticatedApp from './components/AuthenticatedApp';
-import UnauthenticatedApp from './components/UnauthenticatedApp';
+import AuthenticatedApp from './AuthenticatedApp';
+import UnauthenticatedApp from './UnauthenticatedApp';
 
 
 
@@ -17,7 +17,7 @@ function App() {
   //     .then((data) => setCount(data.count));
   // }, []);
 
-  useEffect( () => {
+  useEffect(() => {
     fetch('/api/me', {
           credentials: 'include'
         })
@@ -28,23 +28,21 @@ function App() {
                 setAuthChecked(true)
               })
             } else {
-              setAuthChecked(false)
+              setAuthChecked(true)
             }
           })
       }, [])
 
 
-      // <Login setCurrentUser = {setCurrentUser}/>
   if(!authChecked) {return <div> </div>}
   return (
     <Router>
-      {currentUser? (
+      {currentUser ? (
         <AuthenticatedApp 
-        currentUser={currentUser}
         setCurrentUser = {setCurrentUser}
-        setAuthChecked = {setAuthChecked}/>)
-        :
-        (<UnauthenticatedApp
+        currentUser={currentUser}
+       />
+       ) : (<UnauthenticatedApp
           setCurrentUser={setCurrentUser}/>
         )}
   </Router>

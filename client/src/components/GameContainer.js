@@ -1,6 +1,6 @@
 import React from 'react'
 
-function TeamSchedule() {
+function GameContainer() {
     return (
         <div>
             
@@ -8,4 +8,4 @@ function TeamSchedule() {
     )
 }
 
-export default TeamSchedule
+export default GameContainer

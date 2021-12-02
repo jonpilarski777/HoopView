@@ -1,6 +1,6 @@
 import React from 'react'
 
-function TeamStats() {
+function GameList() {
     return (
         <div>
             
@@ -8,4 +8,4 @@ function TeamStats() {
     )
 }
 
-export default TeamStats
+export default GameList
