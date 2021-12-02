@@ -1,40 +1,44 @@
 import React from 'react'
-import {Switch, Route, NavLink } from 'react-router-dom'
+import Navbar from './components/Navbar'
+import TeamsContainer from './components/TeamsContainer'
+import GamesContainer from './components/GamesContainer'
+import {Switch, Route, Redirect, useHistory } from 'react-router-dom'
 
 
-function AuthenticatedApp({currentUser, setCurrentUser, setAuthChecked}) {
-  
+function AuthenticatedApp({currentUser, setCurrentUser}) {
+    const history = useHistory()  
+
+
     const handleLogout = () => {
         fetch(`/api/logout`, {
-          method: 'DELETE'
+          method: 'DELETE',
+          credentials: 'include'
         })
-          .then(res => {
-            if (res.ok) {
+          .then(r => {
+            if (r.ok) {
               setCurrentUser(null)
-              setAuthChecked(false)
+              history.push('/')
             }
           })
       }
     return (
         <>
-        <nav>
-            <span>
-                <NavLink to= "/user_daily_games"> Daily Games</NavLink>
-                <NavLink to= "/user_favorite_teams"> Favorite Teams</NavLink>
-            </span>
-            <span> Logged in as {currentUser.username} <button onClick= {handleLogout}>Logout</button>
-            </span>
-        </nav>
-            <Switch>
-                <Route path="/user_daily_games">
-                    <DailyGamesContainer currentUser = {currentUser}/>
-                </Route>
-                <Route path="/user_favorite_teams">
-                    <TeamView currentUser = {currentUser}/>
-                </Route>
-            </Switch>
-            </>
-      )
+          <Navbar 
+            setCurrentUser={setCurrentUser}
+            currentUser={currentUser}
+            handleLogout={handleLogout}
+          />
+          <Switch>
+            <Route path="/favorite_teams">
+                <TeamsContainer/>
+            </Route>
+            <Route path="/daily_games">
+                <GamesContainer/>
+            </Route>
+            <Redirect to= "/favorite_teams" />
+          </Switch>
+        </>
+      );
 
 }
 

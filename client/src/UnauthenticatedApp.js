@@ -18,4 +18,4 @@ function UnauthenticatedApp({setCurrentUser}) {
     )
 }
 
-export default UnauthenticatedApp
+export default UnauthenticatedApp;

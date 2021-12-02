@@ -1,10 +1,21 @@
 import React from 'react'
+import {NavLink} from 'react-router-dom'
 
-function Navbar() {
+function Navbar({handleLogout}) {
+
+    // const [toggleNavbar, settoggleNavbar] = useState(false)
+
     return (
-        <div>
-            
-        </div>
+        <>
+            <div>
+                <NavLink to="/favorite_teams">Teams</NavLink>
+                <NavLink to="/daily_games">Games</NavLink>
+            </div>
+            <div>
+                <button onClick={handleLogout}>Logout</button>
+            </div>
+
+        </>
     )
 }
 
