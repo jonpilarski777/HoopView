@@ -4,19 +4,11 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import AuthenticatedApp from './AuthenticatedApp';
 import UnauthenticatedApp from './UnauthenticatedApp';
 
-
-
 function App() {
 
-  const [ currentUser, setCurrentUser] = useState(null)
+  const [currentUser, setCurrentUser] = useState(null)
   const [authChecked, setAuthChecked] = useState(false)
-  // const [count, setCount] = useState(0);
-  // useEffect(() => {
-  //   fetch("/hello")
-  //     .then((r) => r.json())
-  //     .then((data) => setCount(data.count));
-  // }, []);
-
+ 
   useEffect(() => {
     fetch('/api/me', {
           credentials: 'include'

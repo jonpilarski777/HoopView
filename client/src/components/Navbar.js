@@ -8,8 +8,8 @@ function Navbar({handleLogout}) {
     return (
         <>
             <div>
-                <NavLink to="/favorite_teams">Teams</NavLink>
-                <NavLink to="/daily_games">Games</NavLink>
+                <NavLink to="/teams">Teams</NavLink>
+                <NavLink to="/games">Games</NavLink>
             </div>
             <div>
                 <button onClick={handleLogout}>Logout</button>

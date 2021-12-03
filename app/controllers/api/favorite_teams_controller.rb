@@ -5,7 +5,7 @@ class Api::FavoriteTeamsController < ApplicationController
     end
 
     def show 
-        render json: FavoriteTeam.find(params[:id]), status: :ok
+        render json: FavoriteTeam.find(params[:id]), serializer: FavoriteTeamDetailSerializer
     end
 
 end

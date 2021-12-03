@@ -3,7 +3,7 @@ import {Switch, Route} from 'react-router-dom'
 import GameList from './GameList'
 import GameDetail from './GameDetail'
 
-function GameContainer() {
+function GamesContainer() {
     const [games, setGames] = useState([])
 
     useEffect(() => {
@@ -45,4 +45,4 @@ function GameContainer() {
     )
 }
 
-export default GameContainer
+export default GamesContainer

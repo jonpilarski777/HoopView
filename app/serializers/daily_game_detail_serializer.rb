@@ -1,0 +1,3 @@
+class DailyGameDetailSerializer < DailyGameSerializer
+    
+end

@@ -3,7 +3,7 @@ import {Switch, Route} from 'react-router-dom'
 import TeamList from './TeamList'
 import TeamDetail from './TeamDetail'
 
-function TeamContainer() {
+function TeamsContainer() {
 
     const [teams, setTeams] = useState([])
 
@@ -42,4 +42,4 @@ function TeamContainer() {
     )
 }
 
-export default TeamContainer
+export default TeamsContainer
