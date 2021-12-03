@@ -1,14 +1,18 @@
 class Api::UserFavoriteTeamsController < ApplicationController
     before_action :find_and_validate_user_favorite_team, only: [:show, :update, :destroy]
 
+    # get '/api/user_favorite_teams'
     def index 
         render json: UserFavoriteTeam.all
     end
 
+    
+    # get '/api/user_favorite_teams/:id'
     def show 
         render json: @user_favorite_team, status: :ok
     end
 
+    # post '/api/user_favorite_teams'
     def create 
         user_favorite_team = UserFavoriteTeam.create(user_favorite_team_params)
 
@@ -19,6 +23,7 @@ class Api::UserFavoriteTeamsController < ApplicationController
         end
     end
 
+    #patch '/api/user_favorite_teams/:id'
     def update
         if @user_favorite_team.update(update_user_favorite_team_params)
             render json: @user_favorite_team, status: :ok
@@ -27,6 +32,7 @@ class Api::UserFavoriteTeamsController < ApplicationController
         end
     end
 
+    #delete '/api/user_favorite_teams/:id'
     def destroy 
         @user_favorite_team.destroy
         render json: @user_favorite_team

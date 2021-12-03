@@ -24,7 +24,25 @@ end
 puts user_list
 users = User.create(user_list)
 
+puts "Seeding daily games"
+daily_games = DailyGame.create([
+    date: Time.new(2021, 12, 5, 11, 30),
+    matchup: "Duke vs. North Carolina",
+    venue: "Madison Square Garden"
+])
 
+puts "Seeding user daily games"
+users.length.times do |t|
+    user_id = users[t].id
+    daily_games.length.times do |z|
+        daily_game_id = daily_games[z].id
+        UserDailyGame.create({ 
+            user_id: user_id,
+            daily_game_id: daily_game_id,
+            today: Date.today
+         })
+    end
+end
 
 puts "Seeding Favorite Teams"
 team_samples = ["Duke", "North Carolina", "South Carolina", "Texas", "Gonzaga", "Bryant", 
@@ -36,6 +54,7 @@ team_samples.each_with_index do |b, i|
         team_name: b,
         wins: (rand(1..6)),
         losses: (rand(1..6)),
+        daily_game_id: DailyGame.all.sample.id
     })
 end
 favorite_teams = FavoriteTeam.create(teams_list)
@@ -66,25 +85,7 @@ schedules = Schedule.create([
     favorite_team_id: FavoriteTeam.all.sample.id   
     }])
 
-puts "Seeding daily games"
-daily_games = DailyGame.create([
-    date: Time.new(2021, 12, 5, 11, 30),
-    matchup: "Duke vs. North Carolina",
-    venue: "Madison Square Garden"
-])
 
-puts "Seeding user daily games"
-users.length.times do |t|
-    user_id = users[t].id
-    daily_games.length.times do |z|
-        daily_game_id = daily_games[z].id
-        UserDailyGame.create({ 
-            user_id: user_id,
-            daily_game_id: daily_game_id,
-            today: Date.today
-         })
-    end
-end
 puts "Seeding Team Stats"
 
 Team_Stats = TeamStat.create([
