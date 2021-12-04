@@ -4,7 +4,6 @@ import TeamList from './TeamList'
 import TeamDetail from './TeamDetail'
 
 function TeamsContainer() {
-
     const [teams, setTeams] = useState([])
 
     useEffect(() => {
@@ -31,8 +30,12 @@ function TeamsContainer() {
                 return r.json().then(errors => Promise.reject(errors))
                }
             })
+            // .then(team => {
+            //     setTeams(teams.concat(team))
+            // })
+        
             .then(userFavoriteTeam => {
-                const updatedFavoriteTeams = teams.map(team => {
+                const updatedFavoriteTeams = teams.map((team) => {
                     if (team.id === teamId) { 
                         return{
                             ...team,
@@ -47,13 +50,13 @@ function TeamsContainer() {
                 })
             }
     const removeFavoriteTeam = (teamId) => {
-        let userFavoriteTeamId = teams.find(team => team.id === teamId).user_favorite_team.id
-        return fetch(`/user_favorite_teams/${userFavoriteTeamId}`, {method: 'DELETE', 
+        const favoriteTeam = teams.find(team => team.id === teamId)
+        return fetch(`/user_favorite_teams/${favoriteTeam.user_favorite_team.id}`, {method: 'DELETE', 
         credentials: 'include', 
     })
     .then(r => {
         if (r.ok) {
-            const updatedFavoriteTeams = teams.map(team => {
+            const updatedFavoriteTeams = teams.map((team) => {
                 if (team.id === teamId) {
                     return {
                         ...team,
@@ -63,6 +66,7 @@ function TeamsContainer() {
                     return team
                 }
             })
+            console.log(updatedFavoriteTeams)
             setTeams(updatedFavoriteTeams)
         }
     })

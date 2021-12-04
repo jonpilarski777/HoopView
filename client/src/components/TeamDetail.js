@@ -6,7 +6,7 @@ import TeamSchedule from './TeamSchedule'
 function TeamDetail({teamId, addFavoriteTeam, removeFavoriteTeam}) {
     
     const [team, setTeam] = useState(null)
-//useCallback hook used to prevent function rerendering without change
+
     const fetchTeam = useCallback(() => {
         fetch(`/api/user_favorite_teams/${teamId}`,  {
             credentials: 'include',
@@ -35,8 +35,6 @@ function TeamDetail({teamId, addFavoriteTeam, removeFavoriteTeam}) {
                  </button>
             )
         }
-
-
     }
 
     // Note ? used after team is optional chaining operator which returns undefined instead of error when favorite team doesnt exist
