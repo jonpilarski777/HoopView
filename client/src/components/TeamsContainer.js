@@ -15,7 +15,59 @@ function TeamsContainer() {
         .then(teams => setTeams(teams))
     }, [])
 
-    // 
+    const addFavoriteTeam =  (teamId) => {
+        return fetch('/api/user_favorite_teams', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include',
+            body: JSON.stringify({favorite_team_id: teamId})
+            })
+            .then(r => {
+                    if (r.ok) {
+               return r.json()}
+               else {
+                return r.json().then(errors => Promise.reject(errors))
+               }
+            })
+            .then(userFavoriteTeam => {
+                const updatedFavoriteTeams = teams.map(team => {
+                    if (team.id === teamId) { 
+                        return{
+                            ...team,
+                            user_favorite_team: userFavoriteTeam,
+                            }
+                        } else {
+                            return team 
+                        }
+                
+                    })
+                    setTeams(updatedFavoriteTeams)
+                })
+            }
+    const removeFavoriteTeam = (teamId) => {
+        let userFavoriteTeamId = teams.find(team => team.id === teamId).user_favorite_team.id
+        return fetch(`/user_favorite_teams/${userFavoriteTeamId}`, {method: 'DELETE', 
+        credentials: 'include', 
+    })
+    .then(r => {
+        if (r.ok) {
+            const updatedFavoriteTeams = teams.map(team => {
+                if (team.id === teamId) {
+                    return {
+                        ...team,
+                        user_favorite_team: undefined
+                    }
+                } else {
+                    return team
+                }
+            })
+            setTeams(updatedFavoriteTeams)
+        }
+    })
+}
+
     return (
         <div>
             <Switch>
@@ -25,6 +77,8 @@ function TeamsContainer() {
                 >
                 <TeamList 
                 teams = {teams}
+                addFavoriteTeam = {addFavoriteTeam}
+                removeFavoriteTeam = {removeFavoriteTeam}
                 />                  
                 </Route>            
                 <Route
@@ -33,6 +87,8 @@ function TeamsContainer() {
                     render={({match}) => {
                         return <TeamDetail
                             teamId={match.params.id}
+                            addFavoriteTeam = {addFavoriteTeam}
+                            removeFavoriteTeam = {removeFavoriteTeam}
                         />
                      }}
                 />
