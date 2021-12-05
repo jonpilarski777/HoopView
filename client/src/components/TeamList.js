@@ -29,7 +29,7 @@ function TeamList({teams, addFavoriteTeam, removeFavoriteTeam}) {
             {teams.map(team => (
                 <p>
                     <Link to={`/teams/${team.id}`}>
-                        {team.team}
+                        {team.team_name}
                     </Link>
                     <span>{addOrRemoveFavoriteTeam(team)}</span>
                 </p>

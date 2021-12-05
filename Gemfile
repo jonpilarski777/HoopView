@@ -43,3 +43,9 @@ gem "active_model_serializers", "~> 0.10.12"
 
 gem 'date'
 
+
+gem "nokogiri", "~> 1.12"
+
+gem "httparty", "~> 0.20.0"
+
+gem "open-uri", "~> 0.2.0"
