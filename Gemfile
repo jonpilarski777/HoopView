@@ -46,6 +46,10 @@ gem 'date'
 
 gem "nokogiri", "~> 1.12"
 
-gem "httparty", "~> 0.20.0"
+# gem "httparty", "~> 0.20.0"
 
 gem "open-uri", "~> 0.2.0"
+
+gem "rest-client", "~> 2.1"
+
+gem "dotenv-rails", "~> 2.7"
