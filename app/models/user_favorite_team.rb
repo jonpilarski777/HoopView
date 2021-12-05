@@ -5,5 +5,5 @@ class UserFavoriteTeam < ApplicationRecord
     # validates :favorite_team_id, uniqueness: { scope: [:user_id], message: "has already been listed. Please select a different team." }
     # I think it this one WONT have scope!!, just uniqueness by itself
 
-    # validates :favorite_team, presence: true
+    validates :favorite_team_id, presence: true
 end

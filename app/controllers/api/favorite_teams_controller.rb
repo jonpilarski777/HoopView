@@ -1,4 +1,5 @@
 class Api::FavoriteTeamsController < ApplicationController
+  
 
     # get '/api/favorite_teams'
     def index 

@@ -1,4 +1,5 @@
 class Api::SchedulesController < ApplicationController
+  
     
     #get '/api/schedules'
     def index 

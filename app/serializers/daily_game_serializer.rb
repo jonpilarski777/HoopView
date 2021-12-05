@@ -1,6 +1,6 @@
 class DailyGameSerializer < ActiveModel::Serializer
   attributes :id, :matchup, :date, :venue, :user_daily_game
-  has_many :favorite_team_details
+  has_many :favorite_teams
 
   
   def user_daily_game 
