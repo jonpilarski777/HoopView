@@ -20,6 +20,7 @@ function TeamDetail({teamId, addFavoriteTeam, removeFavoriteTeam}) {
     }, [fetchTeam])
     
 
+
     const addOrRemoveButton = (team) => {
         if (team.user_favorite_team) {
             return (
@@ -41,7 +42,7 @@ function TeamDetail({teamId, addFavoriteTeam, removeFavoriteTeam}) {
     if (!team){ return <div></div>}
     return (
         <div>
-            <h1> {team.name} </h1>
+            <h1> {team.team} </h1>
             {addOrRemoveButton(team)}
         </div>
     )
