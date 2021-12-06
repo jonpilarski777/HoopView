@@ -33,7 +33,8 @@ return (
     <div>
       <Redirect to="/" />
           <form onSubmit={handleSubmit}>
-              <h1>Log In</h1>
+              <h1> HoopView Login </h1>
+         
               <p>
                 <label 
                     htmlFor="username"
@@ -61,7 +62,7 @@ return (
                 />
               </p>
               <p><button type="submit">Log In</button></p>
-              <p>-- or --</p> */
+              <p>-- or --</p> 
               <p><Link to="/signup">Sign Up</Link></p>
           </form>         
     </div>

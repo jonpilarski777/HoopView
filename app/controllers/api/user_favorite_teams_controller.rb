@@ -1,5 +1,6 @@
 class Api::UserFavoriteTeamsController < ApplicationController
     before_action :find_and_validate_user_favorite_team, only: [:show, :update, :destroy]
+    skip_before_action :confirm_authentication
 
     # get '/api/user_favorite_teams'
     def index 

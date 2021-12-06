@@ -1,6 +1,5 @@
 class Api::FavoriteTeamsController < ApplicationController
-  
-
+    skip_before_action :confirm_authentication
     # get '/api/favorite_teams'
     def index 
         render json: FavoriteTeam.all

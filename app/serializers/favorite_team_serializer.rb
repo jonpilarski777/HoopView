@@ -1,8 +1,6 @@
 class FavoriteTeamSerializer < ActiveModel::Serializer
   attributes :id, :team_name, :wins, :losses, :user_favorite_team
-
-  # has_many :user_favorite_teams
-
+   
 
 
   def user_favorite_team 

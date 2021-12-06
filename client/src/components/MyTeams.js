@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 
-function MyTeams({teams}) {
+function MyTeams({}) {
     const [myTeams, setMyTeams] = useState([])
 
     useEffect(() => {
@@ -17,7 +17,6 @@ function MyTeams({teams}) {
     return (
         <div>
 
-            Testing
             {myTeams.map(myTeam => 
                 <p>{myTeam.team} </p>
             

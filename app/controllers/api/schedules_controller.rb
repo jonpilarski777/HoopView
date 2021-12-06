@@ -1,5 +1,5 @@
 class Api::SchedulesController < ApplicationController
-  
+    skip_before_action :confirm_authentication 
     
     #get '/api/schedules'
     def index 
