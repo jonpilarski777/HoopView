@@ -5,6 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# require ‘rest-client’
+
+
+
+# def cbb_data
+#     cbb = RestClient.get(http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/teams)
+#     cbb_array = JSON.parse(news)["articles"]
+#     cbb.each do |s|
+#     CBB.create(title: s["title"], author: s["author"], content:   s["content"], url: s["url"])
+# end
+# end
+# cbb_data()
+
 puts "Deleting existing data on reseed..."
 
 puts "Seeding users..."
