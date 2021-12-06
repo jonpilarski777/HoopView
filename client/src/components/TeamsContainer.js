@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {Switch, Route} from 'react-router-dom'
 import TeamList from './TeamList'
 import TeamDetail from './TeamDetail'
+import MyTeams from './MyTeams'
 
 
 function TeamsContainer() {
@@ -52,7 +53,7 @@ function TeamsContainer() {
             }
     const removeFavoriteTeam = (teamId) => {
         let favoriteTeam = teams.find(team => team.id === teamId).user_favorite_team.id
-        return fetch(`/user_favorite_teams/${favoriteTeam}`, {method: 'DELETE', 
+        return fetch(`/api/user_favorite_teams/${favoriteTeam}`, {method: 'DELETE', 
         credentials: 'include', 
     })
     .then(r => {

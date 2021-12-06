@@ -28,7 +28,7 @@ function TeamList({teams, addFavoriteTeam, removeFavoriteTeam}) {
         <div> 
             {teams.map(team => (
                 <p>
-                    <Link to={`/teams/${team.id}`}>
+                    <Link to={`teams/${team.id}`}>
                         {team.team_name}
                     </Link>
                     <span>{addOrRemoveFavoriteTeam(team)}</span>
