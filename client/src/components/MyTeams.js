@@ -9,18 +9,32 @@ function MyTeams({}) {
         })
         .then(r => r.json())
         .then(myTeams =>setMyTeams(myTeams))
+        // 
             
 
     }, [myTeams])
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+
+
+    }
+
+    //updaterankingonfavteam
+
+
 
     return (
         <div>
-
-            {myTeams.map(myTeam => 
-                <p>{myTeam.team} </p>
+             {myTeams.map(myTeam => (
+            <p>
+                {myTeam.team} 
+            </p>
             
-            )}
+           
+            
+           ) )}
         </div>
     )
 }

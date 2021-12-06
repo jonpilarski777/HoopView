@@ -4,7 +4,7 @@ class DailyGameSerializer < ActiveModel::Serializer
 
   
   def user_daily_game 
-    UserDailyGame.find_by(user_id: current_user.id, daily_game_id: self.object.id)
+    UserDailyGame.find_by(user_id: current_user&.id, daily_game_id: self.object.id)
   end
 
 end

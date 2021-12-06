@@ -7,6 +7,10 @@ import MyTeams from './MyTeams'
 
 function TeamsContainer() {
     const [teams, setTeams] = useState([])
+    const [myTeams, setMyTeams] = useState([])
+
+
+
 
     useEffect(() => {
         fetch('/api/favorite_teams', {
@@ -14,6 +18,17 @@ function TeamsContainer() {
         })
         .then(r => r.json())
         .then(teams => setTeams(teams))
+    }, [])
+
+    useEffect(() => {
+        fetch('/api/user_favorite_teams', {
+            credentials: 'include'
+        })
+        .then(r => r.json())
+        .then(myTeams =>setMyTeams(myTeams))
+        // 
+            
+
     }, [])
 
     const addFavoriteTeam =  (teamId) => {
@@ -73,6 +88,47 @@ function TeamsContainer() {
     })
 }
 
+
+// const updateFavoriteTeamRanking = (teamId) => {
+//     return fetch('/api/user_favorite_teams', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         credentials: 'include',
+//         body: JSON.stringify({favorite_team_id: teamId})
+//         })
+//         .then(r => {
+//                 if (r.ok) {
+//            return r.json()}
+//            else {
+//             return r.json().then(errors => Promise.reject(errors))
+//            }
+//         })
+//         .then(userFavoriteTeam => {
+//             const updatedRanking = myTeams.map((myTeam) => {
+//                 if (myTeam.id === teamId) {
+//                     return {
+//                         ...myTeam,
+//                         user_favorite_team: userFavoriteTeam}
+//                     } else {
+//                         return myTeam
+
+//                     }})
+//                     setMyTeams(updatedRanking)
+//                 }
+
+
+
+            
+
+
+
+        
+
+
+//             } 
+
     return (
         <div>
             <Switch>
@@ -97,7 +153,14 @@ function TeamsContainer() {
                         />
                      }}
                 />
-               
+                <Route
+                    exact
+                    path="/myteams"
+                >
+                   <MyTeams  myTeams = {myTeams} />
+        {/* // updateFavoriteTeamRanking = {updateFavoriteTeamRanking} */}
+                /       
+               </Route>
             </Switch>
             
         </div>

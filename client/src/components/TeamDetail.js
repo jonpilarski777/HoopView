@@ -10,7 +10,7 @@ function TeamDetail({teamId, addFavoriteTeam, removeFavoriteTeam}) {
 
 
     const fetchTeam = useCallback(() => {
-        fetch(`/api/user_favorite_teams/${teamId}`,  {
+        fetch(`/api/favorite_teams/${teamId}`,  {
             credentials: 'include',
         })
         .then(r => r.json())
