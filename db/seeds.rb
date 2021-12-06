@@ -25,18 +25,17 @@ puts "Seeding users..."
 user_samples = ["Jay Bilas", "Bill Self", "Gus Johnson", "John Calipari", "Roy Williams"
 ]
 
-user_list = []
-user_samples.each_with_index do |a, i|
-    user_list.push({
-        name: a,
-        username: "user#{101 + i}",
-        password_digest: "temptemptemp",
-        email: "tempyMcTempel@temp.com",
-    })
-    puts "adding user"
-end
-puts user_list
-users = User.create(user_list)
+User1 = User.create(name: user_samples[0], username: "user101", password_digest: "temptemptemp", email: "tempyMcTempel@temp.com")
+
+User2 = User.create(name: user_samples[1], username: "user102", password_digest: "temptemptemp", email: "tempyMcTempe2@temp.com")
+
+User3 = User.create(name: user_samples[2], username: "user103", password_digest: "temptemptemp", email: "tempyMcTempe3@temp.com")
+
+User4 = User.create(name: user_samples[3], username: "user104", password_digest: "temptemptemp", email: "tempyMcTempe4@temp.com")
+
+User5 = User.create(name: user_samples[4], username: "user105", password_digest: "temptemptemp", email: "tempyMcTempe5@temp.com")
+
+users = [User1, User2, User3, User4, User5]
 
 puts "Seeding daily games"
 daily_games = DailyGame.create([
@@ -113,16 +112,20 @@ favorite_teams = FavoriteTeam.create(teams_list)
 puts "Seeding user Favorite Teams"
 users.length.times do |t|
     user_id = users[t].id
-    favorite_teams.length.times do |z|
-        favorite_team_id = favorite_teams[z].id
-        team = team_samples[z]
+    5.times do |w|
+        favorite_team_id = favorite_teams.sample.id
+        z = favorite_teams[favorite_team_id - 1]
+        team = z.team_name
+        ranking = (1...10).to_a.sample
         UserFavoriteTeam.create({ 
             user_id: user_id,
             favorite_team_id: favorite_team_id,
-            team: team
-         })
-    end
+            team: team, 
+            ranking: ranking
+            })
+        end
 end
+
 
 puts "Seeding Schedules"
 schedules = Schedule.create([
