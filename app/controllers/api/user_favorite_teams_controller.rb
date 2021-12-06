@@ -34,7 +34,6 @@ class Api::UserFavoriteTeamsController < ApplicationController
 
     #delete '/api/user_favorite_teams/:id'
     def destroy 
-        user_favorite_team = @user_favorite_team.find(params[:id])
         @user_favorite_team.destroy
         render json: @user_favorite_team
     end

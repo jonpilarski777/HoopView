@@ -7,12 +7,14 @@ function TeamDetail({teamId, addFavoriteTeam, removeFavoriteTeam}) {
     
     const [team, setTeam] = useState(null)
 
+
+
     const fetchTeam = useCallback(() => {
         fetch(`/api/user_favorite_teams/${teamId}`,  {
             credentials: 'include',
         })
         .then(r => r.json())
-        .then(team => setTeam(team))
+        .then(team => console.log(team))
     }, [teamId])
 
     useEffect(() => {

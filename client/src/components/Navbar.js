@@ -9,6 +9,7 @@ function Navbar({handleLogout}) {
         <>
             <div>
                 <NavLink to="/teams">Teams</NavLink>
+                <NavLink to="/myteams"> Favorite Teams</NavLink>
                 <NavLink to="/games">Games</NavLink>
             </div>
             <div>

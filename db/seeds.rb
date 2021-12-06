@@ -115,8 +115,7 @@ users.length.times do |t|
     user_id = users[t].id
     favorite_teams.length.times do |z|
         favorite_team_id = favorite_teams[z].id
-        teamName = team_samples
-        team = FavoriteTeam.all.sample.team_name
+        team = team_samples[z]
         UserFavoriteTeam.create({ 
             user_id: user_id,
             favorite_team_id: favorite_team_id,

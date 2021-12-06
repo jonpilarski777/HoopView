@@ -50,8 +50,8 @@ function TeamsContainer() {
                 })
             }
     const removeFavoriteTeam = (teamId) => {
-        const favoriteTeam = teams.find(team => team.id === teamId)
-        return fetch(`/user_favorite_teams/${favoriteTeam.id}`, {method: 'DELETE', 
+        let favoriteTeam = teams.find(team => team.id === teamId).user_favorite_team.id
+        return fetch(`/user_favorite_teams/${favoriteTeam}`, {method: 'DELETE', 
         credentials: 'include', 
     })
     .then(r => {
@@ -66,7 +66,6 @@ function TeamsContainer() {
                     return team
                 }
             })
-            console.log(updatedFavoriteTeams)
             setTeams(updatedFavoriteTeams)
         }
     })
