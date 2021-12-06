@@ -1,5 +1,5 @@
 class UserFavoriteTeamsSerializer < ActiveModel::Serializer
-  attributes :id, :team, :user_id, :favorite_team_id
+  attributes :id, :team, :user_id, :favorite_team_id, :ranking
   belongs_to :favorite_team
 
   

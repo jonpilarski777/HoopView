@@ -14,7 +14,7 @@ function TeamDetail({teamId, addFavoriteTeam, removeFavoriteTeam}) {
             credentials: 'include',
         })
         .then(r => r.json())
-        .then(team => console.log(team))
+        .then(team => setTeam(team))
     }, [teamId])
 
     useEffect(() => {

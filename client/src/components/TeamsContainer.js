@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {Switch, Route} from 'react-router-dom'
 import TeamList from './TeamList'
 import TeamDetail from './TeamDetail'
+import MyTeams from './MyTeams'
 
 function TeamsContainer() {
     const [teams, setTeams] = useState([])
@@ -95,6 +96,13 @@ function TeamsContainer() {
                         />
                      }}
                 />
+                <Route
+                    exact
+                    path="/myteams"
+                    >
+                    <MyTeams 
+                    /> 
+                </Route>
             </Switch>
             
         </div>
