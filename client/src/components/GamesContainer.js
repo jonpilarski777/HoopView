@@ -14,7 +14,7 @@ function GamesContainer() {
         .then(games => setGames(games))
     }, [])
 
-
+    console.log("games", games)
 
 
 
