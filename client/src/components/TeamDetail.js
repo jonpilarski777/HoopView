@@ -6,10 +6,15 @@ import TeamSchedule from './TeamSchedule'
 function TeamDetail({teamId, addFavoriteTeam, removeFavoriteTeam}) {
     
     const [team, setTeam] = useState(null)
+    const [isFavorite, SetisFavorite] = useState(false)
     let history = useHistory();
 
     const backButton = () => {
         history.push("/teams")
+    }
+
+    const takeMeToFavorites = () => {
+        history.push("/myteams")
     }
 
 
@@ -26,17 +31,20 @@ function TeamDetail({teamId, addFavoriteTeam, removeFavoriteTeam}) {
     }, [fetchTeam])
     
 
+    function handleFavorite() {
+        SetisFavorite(!isFavorite);
+    }
 
     const addOrRemoveButton = (team) => {
         if (team.user_favorite_team) {
             return (
-                <button onClick ={() => removeFavoriteTeam(team.id).then(() => fetchTeam())}
+                <button onClick ={() => {removeFavoriteTeam(team.id).then(() => fetchTeam()); handleFavorite()}}
                 > Remove {team.team_name}
                 </button>
             )
         } else {
             return (
-                <button onClick= {()=> addFavoriteTeam(team.id).then(() => fetchTeam())}
+                <button onClick= {()=> {addFavoriteTeam(team.id).then(() => fetchTeam()); handleFavorite()}}
                 > Favorite {team.team_name}
                  </button>
             )
@@ -47,10 +55,10 @@ function TeamDetail({teamId, addFavoriteTeam, removeFavoriteTeam}) {
     if (!team){ return <div></div>}
     return (
         <div>
-            <h1> {team.team_name} </h1>
-            <TeamSchedule team = {team}/>
-            {addOrRemoveButton(team)} <span/>
+            <h1> {team.team_name} </h1> 
+            {addOrRemoveButton(team)} 
             <button onClick={() => backButton()}>Back</button>
+            {isFavorite ? <> <TeamSchedule team = {team}/> <TeamStats />  </>: <div></div>}
         </div>
     )
 }

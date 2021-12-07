@@ -10,8 +10,6 @@ function TeamsContainer() {
     const [myTeams, setMyTeams] = useState([])
 
 
-
-
     useEffect(() => {
         fetch('/api/favorite_teams', {
             credentials: 'include'
@@ -110,15 +108,6 @@ function TeamsContainer() {
 //                     setMyTeams(updatedRanking)
 //                 }
 
-
-
-            
-
-
-
-        
-
-
 //             } 
 
     return (
@@ -149,7 +138,7 @@ function TeamsContainer() {
                     exact
                     path="/myteams"
                 >
-                   <MyTeams  myTeams = {myTeams} />
+                   <MyTeams myTeams = {myTeams} />
         {/* // updateFavoriteTeamRanking = {updateFavoriteTeamRanking} */}
                 /       
                </Route>
