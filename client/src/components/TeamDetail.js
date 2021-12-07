@@ -13,10 +13,9 @@ function TeamDetail({teamId, addFavoriteTeam, removeFavoriteTeam}) {
         history.push("/teams")
     }
 
-    const takeMeToFavorites = () => {
-        history.push("/myteams")
-    }
-
+    // const takeMeToFavorites = () => {
+    //     history.push("/myteams")
+    // }
 
     const fetchTeam = useCallback(() => {
         fetch(`/api/favorite_teams/${teamId}`,  {
@@ -51,7 +50,6 @@ function TeamDetail({teamId, addFavoriteTeam, removeFavoriteTeam}) {
         }
     }
 
-    // Note ? used after team is optional chaining operator which returns undefined instead of error when favorite team doesnt exist
     if (!team){ return <div></div>}
     return (
         <div>

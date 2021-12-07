@@ -15,14 +15,16 @@ function TeamsContainer() {
             credentials: 'include'
         })
         .then(r => r.json())
-        .then(teams => setTeams(teams))
+        .then(teams => setTeams(teams))}, [])
+
+    useEffect(() => {
         fetch('/api/user_favorite_teams', {
-            credentials: 'include'
+            credentials: 'include' 
         })
         .then(r => r.json())
         .then(myTeams =>setMyTeams(myTeams))
         console.log("myTeams", myTeams)
-    }, [])
+    }, [teams])
 
     const addFavoriteTeam =  (teamId) => {
         return fetch('/api/user_favorite_teams', {
@@ -78,7 +80,6 @@ function TeamsContainer() {
     })
 }
 
-
 // const updateFavoriteTeamRanking = (teamId) => {
 //     return fetch('/api/user_favorite_teams', {
 //         method: 'POST',
@@ -103,11 +104,9 @@ function TeamsContainer() {
 //                         user_favorite_team: userFavoriteTeam}
 //                     } else {
 //                         return myTeam
-
 //                     }})
 //                     setMyTeams(updatedRanking)
 //                 }
-
 //             } 
 
     return (

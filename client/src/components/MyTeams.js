@@ -1,44 +1,47 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+// import React from 'react'
+// import {Link} from 'react-router-dom'
 
 
-function MyTeams({myTeams}) {
-    // const [myTeams, setMyTeams] = useState([])
-    // const [ranking, setRanking]= useState(0)
+// function MyTeams({myTeams}) {
+//     // const [myTeams, setMyTeams] = useState([])
+//     // const [ranking, setRanking]= useState(0)
 
-    // useEffect(() => {
-    //     fetch('/api/user_favorite_teams', {
-    //         credentials: 'include'
-    //     })
-    //     .then(r => r.json())
-    //     .then(myTeams =>setMyTeams(myTeams))
-    //     // 
+//     // useEffect(() => {
+//     //     fetch('/api/user_favorite_teams', {
+//     //         credentials: 'include'
+//     //     })
+//     //     .then(r => r.json())
+//     //     .then(myTeams =>setMyTeams(myTeams))
+//     //     // 
             
 
-    // }, [])
+//     // }, [])
 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-
-
-
-    // }
-
-    // //updaterankingonfavteam
+//     // const handleSubmit = (e) => {
+//     //     e.preventDefault();
 
 
 
-    return (
-        <div>
-             {myTeams.map(myTeam => (
-            <p>
-                <Link to= {`myTeams/${myTeam.id}`}>
-                {myTeam.team} 
-                </Link>
-            </p>
-           ) )}
-        </div>
-    )
-}
+//     // }
 
-export default MyTeams
+//     // //updaterankingonfavteam
+
+
+
+//     return (
+//         <div> 
+//              {myTeams.map((team) => {
+//              if (team.user_favorite_team)
+//              {
+//                  return (
+//             <p> 
+//                 <Link to= {`myteams/${team.id}`}>
+//                 {team.team_name} 
+//                 </Link>
+//             </p>)}})}
+         
+//         </div>
+//     )
+// }
+
+// export default MyTeams
