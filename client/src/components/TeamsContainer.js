@@ -5,7 +5,7 @@ import TeamDetail from './TeamDetail'
 import MyTeams from './MyTeams'
 
 
-function TeamsContainer() {
+function TeamsContainer(currentUser) {
     const [teams, setTeams] = useState([])
     const [myTeams, setMyTeams] = useState([])
 
@@ -26,14 +26,19 @@ function TeamsContainer() {
         console.log("myTeams", myTeams)
     }, [teams])
 
-    const addFavoriteTeam =  (teamId) => {
+    const addFavoriteTeam =  (team) => {
+        const newFav = {
+            team: team.team,
+            ranking: 1,
+            user_id: currentUser.id,
+            favorite_team_id: team.id            
+        }
         return fetch('/api/user_favorite_teams', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            credentials: 'include',
-            body: JSON.stringify({favorite_team_id: teamId})
+            credentials: 'include', body: JSON.stringify(newFav)
             })
             .then(r => {
                     if (r.ok) {
