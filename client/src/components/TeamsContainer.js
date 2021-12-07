@@ -21,7 +21,7 @@ function TeamsContainer() {
         })
         .then(r => r.json())
         .then(myTeams =>setMyTeams(myTeams))
-
+        console.log("myTeams", myTeams)
     }, [])
 
     const addFavoriteTeam =  (teamId) => {
