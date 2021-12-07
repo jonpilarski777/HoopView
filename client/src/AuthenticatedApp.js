@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from './components/Navbar'
 import TeamsContainer from './components/TeamsContainer'
 import GamesContainer from './components/GamesContainer'
+import MyTeams from './components/MyTeams'
 import {Switch, Route, Redirect, useHistory } from 'react-router-dom'
 
 
@@ -35,6 +36,9 @@ function AuthenticatedApp({currentUser, setCurrentUser}) {
           <span> </span>
             <Route path="/games">
                 <GamesContainer/>
+            </Route>
+            <Route path="/myteams">
+                <MyTeams />
             </Route>
             <Redirect to= "/teams" />
           </Switch>

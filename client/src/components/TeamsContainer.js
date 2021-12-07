@@ -18,16 +18,11 @@ function TeamsContainer() {
         })
         .then(r => r.json())
         .then(teams => setTeams(teams))
-    }, [])
-
-    useEffect(() => {
         fetch('/api/user_favorite_teams', {
             credentials: 'include'
         })
         .then(r => r.json())
         .then(myTeams =>setMyTeams(myTeams))
-        // 
-            
 
     }, [])
 
@@ -47,16 +42,13 @@ function TeamsContainer() {
                 return r.json().then(errors => Promise.reject(errors))
                }
             })
-            // .then(team => {
-            //     setTeams(teams.concat(team))
-            // })
-        
             .then(userFavoriteTeam => {
                 const updatedFavoriteTeams = teams.map((team) => {
                     if (team.id === teamId) { 
                         return{
                             ...team,
                             user_favorite_team: userFavoriteTeam,
+                            team: team.team_name
                             }
                         } else {
                             return team 

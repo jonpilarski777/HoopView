@@ -1,12 +1,16 @@
 import React, {useState, useEffect, useCallback} from 'react'
-import {Link} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import TeamStats from './TeamStats'
 import TeamSchedule from './TeamSchedule'
 
 function TeamDetail({teamId, addFavoriteTeam, removeFavoriteTeam}) {
     
     const [team, setTeam] = useState(null)
+    let history = useHistory();
 
+    const backButton = () => {
+        history.push("/teams")
+    }
 
 
     const fetchTeam = useCallback(() => {
@@ -27,14 +31,13 @@ function TeamDetail({teamId, addFavoriteTeam, removeFavoriteTeam}) {
         if (team.user_favorite_team) {
             return (
                 <button onClick ={() => removeFavoriteTeam(team.id).then(() => fetchTeam())}
-                > Remove Team 
+                > Remove {team.team_name}
                 </button>
             )
         } else {
             return (
                 <button onClick= {()=> addFavoriteTeam(team.id).then(() => fetchTeam())}
-
-                > Add Team
+                > Favorite {team.team_name}
                  </button>
             )
         }
@@ -46,7 +49,8 @@ function TeamDetail({teamId, addFavoriteTeam, removeFavoriteTeam}) {
         <div>
             <h1> {team.team_name} </h1>
             <TeamSchedule team = {team}/>
-            {addOrRemoveButton(team)}
+            {addOrRemoveButton(team)} <span/>
+            <button onClick={() => backButton()}>Back</button>
         </div>
     )
 }
