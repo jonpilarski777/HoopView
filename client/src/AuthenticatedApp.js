@@ -31,14 +31,14 @@ function AuthenticatedApp({currentUser, setCurrentUser}) {
           />
           <Switch>
             <Route path="/teams">
-                <TeamsContainer/>
+                <TeamsContainer currentUser={currentUser}/>
             </Route>
           <span> </span>
             <Route path="/games">
                 <GamesContainer/>
             </Route>
             <Route path="/myteams">
-                <MyTeams  />
+                <MyTeams currentUser={currentUser} />
             </Route>
             <Redirect to= "/teams" />
           </Switch>

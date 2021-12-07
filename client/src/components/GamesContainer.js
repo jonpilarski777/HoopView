@@ -3,7 +3,7 @@ import {Switch, Route} from 'react-router-dom'
 import GameList from './GameList'
 import GameDetail from './GameDetail'
 
-function GamesContainer() {
+function GamesContainer({currentUser}) {
     const [games, setGames] = useState([])
 
     useEffect(() => {

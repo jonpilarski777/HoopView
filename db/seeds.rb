@@ -103,7 +103,8 @@ team_samples.each_with_index do |b, i|
         team_name: b,
         wins: (rand(1..6)),
         losses: (rand(1..6)),
-        daily_game_id: DailyGame.all.sample.id
+        daily_game_id: DailyGame.all.sample.id,
+        espn_id: 0
     })
 end
 favorite_teams = FavoriteTeam.create(teams_list)
