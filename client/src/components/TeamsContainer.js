@@ -5,7 +5,7 @@ import TeamDetail from './TeamDetail'
 import MyTeams from './MyTeams'
 
 
-function TeamsContainer(currentUser) {
+function TeamsContainer({currentUser}) {
     const [teams, setTeams] = useState([])
     const [myTeams, setMyTeams] = useState([])
 
@@ -26,7 +26,7 @@ function TeamsContainer(currentUser) {
         console.log("myTeams", myTeams)
     }, [teams])
 
-    const addFavoriteTeam =  (team) => {
+    const addFavoriteTeam = (team) => {
         const newFav = {
             team: team.team,
             ranking: 1,
