@@ -1,5 +1,5 @@
 class Api::DailyGamesController < ApplicationController
-    
+    skip_before_action :confirm_authentication 
     # get '/api/daily_games'
     def index 
         render json: DailyGame.all

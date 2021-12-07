@@ -44,7 +44,7 @@ function TeamDetail({teamId, addFavoriteTeam, removeFavoriteTeam}) {
     if (!team){ return <div></div>}
     return (
         <div>
-            <h1> {team.team} </h1>
+            <h1> {team.team_name} </h1>
             <TeamSchedule team = {team}/>
             {addOrRemoveButton(team)}
         </div>
