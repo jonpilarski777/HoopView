@@ -1,47 +1,29 @@
-// import React from 'react'
-// import {Link} from 'react-router-dom'
+import React from 'react'
+import {Link} from 'react-router-dom'
 
 
-// function MyTeams({myTeams}) {
-//     // const [myTeams, setMyTeams] = useState([])
-//     // const [ranking, setRanking]= useState(0)
-
-//     // useEffect(() => {
-//     //     fetch('/api/user_favorite_teams', {
-//     //         credentials: 'include'
-//     //     })
-//     //     .then(r => r.json())
-//     //     .then(myTeams =>setMyTeams(myTeams))
-//     //     // 
-            
-
-//     // }, [])
-
-//     // const handleSubmit = (e) => {
-//     //     e.preventDefault();
+function MyTeams({myTeams, teams}) {
 
 
-
-//     // }
-
-//     // //updaterankingonfavteam
-
+    const favoriteTeams = teams.filter(team => team.id === team.user_favorite_team.id)
+           
+    console.log("favoriteTeams:", favoriteTeams)
 
 
-//     return (
-//         <div> 
-//              {myTeams.map((team) => {
-//              if (team.user_favorite_team)
-//              {
-//                  return (
-//             <p> 
-//                 <Link to= {`myteams/${team.id}`}>
-//                 {team.team_name} 
-//                 </Link>
-//             </p>)}})}
+    return (
+        <div> 
+      
+           
+             <h1> My Favorite Teams </h1>
+            {favoriteTeams.map(team => (
+                <p>
+                <Link to= {`myteams/${team.id}`}>
+                    {team.team_name} 
+                </Link>
+            </p>))}
          
-//         </div>
-//     )
-// }
+        </div>
+    )
+}
 
-// export default MyTeams
+export default MyTeams
