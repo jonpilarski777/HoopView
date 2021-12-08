@@ -150,9 +150,9 @@ function TeamsContainer({currentUser}) {
                 />
                 <Route
                     exact
-                    path="/myteams"
+                    path="/user_favorite_teams"
                 >
-                   <MyTeams currentUser = {currentUser} myTeams = {myTeams} />
+                   <MyTeams currentUser = {currentUser} myFavsOnly= {myFavsOnly} />
                </Route>
             </Switch>
             

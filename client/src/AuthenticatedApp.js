@@ -37,10 +37,10 @@ function AuthenticatedApp({currentUser, setCurrentUser}) {
             <Route path="/games">
                 <GamesContainer currentUser={currentUser}/>
             </Route>
-            <Route path="/myteams">
+            <Route path="/user_favorite_teams">
                 <MyTeams currentUser={currentUser}/>
             </Route>
-            {/* <Redirect to= "/teams" /> */}
+            <Redirect to= "/favorite_teams" />
           </Switch>
         </>
       );

@@ -13,7 +13,7 @@ function Navbar({handleLogout, currentUser}) {
             </div>
             <div>
                 <NavLink to="/favorite_teams" style={{marginRight: 45}}>Teams</NavLink>
-                <NavLink to="/myteams" style={{marginRight: 45}}>Favorite Teams</NavLink>
+                <NavLink to="/user_favorite_teams" style={{marginRight: 45}}>Favorite Teams</NavLink>
                 <NavLink to="/games">Games</NavLink>
             </div>
         </>

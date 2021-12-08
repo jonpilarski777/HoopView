@@ -21,10 +21,10 @@ function MyTeams({myFavsOnly}) {
     return (
         <div>
         <h1> My Fav Teams </h1>
-        {myFavsOnly.map(EachFavTeam => (
+        {myFavsOnly.map(team => (
                 <p>
-                    <Link to={`teams/${EachFavTeam.id}`}>
-                        {EachFavTeam.team_name}
+                    <Link to={`user_favorite_teams/${team.id}`}>
+                        {team.id}
                     </Link>
                 </p>
             ))}
