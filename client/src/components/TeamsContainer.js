@@ -27,9 +27,9 @@ function TeamsContainer({currentUser}) {
     const addFavoriteTeam = (newTeamId) => {
         const newFav = {
             team: "",
+            favorite_team_id: newTeamId,           
             ranking: 1,
             user_id: currentUser.id,
-            favorite_team_id: newTeamId,           
         }
         return fetch('/api/user_favorite_teams', {
             method: 'POST',
@@ -46,12 +46,12 @@ function TeamsContainer({currentUser}) {
                }
             })
             .then(userFavoriteTeam => {
-                const updatedFavoriteTeams = teams.map((team) => {
+                const updatedFavoriteTeams = teams.map(team => {
                     if (team.id === newTeamId) { 
                         return{
                             ...team,
-                            user_favorite_team: userFavoriteTeam,
-                            team: team.team
+                            user_favorite_team: userFavoriteTeam
+                            // ,team: team.team
                             }
                         } else {
                             return team 
@@ -130,7 +130,7 @@ function TeamsContainer({currentUser}) {
                     path="/teams/:id"
                     render={({match}) => {
                         return <TeamDetail
-                            teamId={match.params.id}
+                            newTeamId={match.params.id}
                             addFavoriteTeam = {addFavoriteTeam}
                             removeFavoriteTeam = {removeFavoriteTeam}
                         />

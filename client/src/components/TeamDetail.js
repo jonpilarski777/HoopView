@@ -38,13 +38,13 @@ function TeamDetail({newTeamId, addFavoriteTeam, removeFavoriteTeam}) {
         if (team.user_favorite_team) {
             return (
                 <button onClick ={() => {removeFavoriteTeam(team.id).then(() => fetchTeam()); handleFavorite()}}
-                > Remove {team.team}
+                > Remove {team.team_name}
                 </button>
             )
         } else {
             return (
                 <button onClick= {()=> {addFavoriteTeam(team.id).then(() => fetchTeam()); handleFavorite()}}
-                > Favorite {team.team_name}
+                > Favorite {team.name}
                  </button>
             )
         }
