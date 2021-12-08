@@ -8,7 +8,7 @@ function Navbar({handleLogout, currentUser}) {
     return (
         <>
             <div>
-                <h1> Currently signed in as {currentUser.username}</h1>
+                <p> Currently signed in as {currentUser.username}</p>
                 <NavLink to="/teams">Teams</NavLink>
                 <NavLink to="/myteams"> Favorite Teams</NavLink>
                 <NavLink to="/games">Games</NavLink>

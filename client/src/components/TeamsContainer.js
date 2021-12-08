@@ -21,10 +21,9 @@ function TeamsContainer({currentUser}) {
             credentials: 'include' 
         })
         .then(r => r.json())
-        .then(myFavsOnly = myTeams.filter((myTeam => myTeam.user_id === currentUser.id))
-             setMyTeams(myFavsOnly))}
-   
-}, [teams])
+        .then(myFavsOnly => { const userFavoriteList = myTeams.filter((myTeam) => myTeam.user_id !== currentUser.id)
+             setMyTeams(userFavoriteList)
+        })}, [teams])
 
          
     console.log("myTeams", myTeams)
@@ -87,7 +86,7 @@ function TeamsContainer({currentUser}) {
             setTeams(updatedFavoriteTeams)
         }
     })
-
+    }
 
 // const updateFavoriteTeamRanking = (teamId) => {
 //     return fetch('/api/user_favorite_teams', {
@@ -146,7 +145,7 @@ function TeamsContainer({currentUser}) {
                     exact
                     path="/myteams"
                 >
-                   <MyTeams currentUser = {currentUser} myFavsOnly = {myFavsOnly} />
+                   <MyTeams currentUser = {currentUser} myTeams = {myTeams} />
                </Route>
             </Switch>
             

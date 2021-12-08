@@ -20,8 +20,8 @@ function MyTeams({currentUser, myTeams}) {
 
     return (
         <div>
-        <h1> Mt Fav Teams </h1>
-        {myFavsOnly.map(team => (
+        <h1> My Fav Teams </h1>
+        {myTeams.map(team => (
             <p>
                 <Link to={`teams/${team.id}`}>
                   Testing

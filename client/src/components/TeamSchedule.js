@@ -24,7 +24,11 @@ function TeamSchedule({team}) {
     
     return (
         <div>
-            <h1>{team.opponent} Is anything? </h1>
+            <p>{team.team_name}'s Schedule: </p>
+            <table>
+                <tr></tr>
+
+            </table>
         </div>
     )
 }

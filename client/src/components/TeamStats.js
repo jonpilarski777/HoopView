@@ -4,14 +4,14 @@ import axios from 'axios'
 
 
 function TeamStats({team}) {
-        const[stats, setStats] = useState([])
+        // const[stats, setStats] = useState([])
     // const [sortedBy, setSortedBy] = useState(null)
     // const [ascending, setAscending] = useState(true)
 
-    function handleStats (id) {
+   
     fetch(`http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/teams/150`)
     .then(r => r.json())
-    .then(data => console.log("stats:", data))}
+    .then(data => console.log("stats:", data))
     // const[data, setData] = useState([])
     // const [sortedBy, setSortedBy] = useState(null)
     // const [ascending, setAscending] = useState(true)
@@ -27,7 +27,7 @@ function TeamStats({team}) {
 
     return (
         <div>
-            <h1> Number be cool doh </h1>
+            <p> {team.team_name}'s Stats: </p>
         </div>
     )
 }
