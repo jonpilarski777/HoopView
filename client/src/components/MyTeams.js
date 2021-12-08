@@ -7,7 +7,7 @@ function MyTeams({currentUser, myTeams}) {
    
     return (
         <div> 
-            {myTeams.filter((eachTeam) => {if (eachTeam.user_id === currentUser.id) {return (<li> {eachTeam.team} </li>)}})}
+            {myTeams.filter((myTeam) => {if (myTeam.user_id === currentUser.id) {return (<li> <EachFavTeam myTeam = {myTeam.team} /> </li>)}})}
 
         </div>
     )
