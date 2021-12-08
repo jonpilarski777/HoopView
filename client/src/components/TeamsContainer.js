@@ -40,7 +40,7 @@ function TeamsContainer({currentUser}) {
         const newFav = {
             team: teams[newTeamId-1].team_name,
             favorite_team_id: newTeamId,           
-            ranking: 2,
+            ranking: Math.floor(Math.random() * 10) + 1,
             user_id: currentUser.id,
         }
       
