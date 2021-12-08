@@ -26,7 +26,7 @@ function TeamsContainer({currentUser}) {
 
     const addFavoriteTeam = (newTeamId) => {
         const newFav = {
-            team: "",
+            team: favorite_team_name,
             favorite_team_id: newTeamId,           
             ranking: 1,
             user_id: currentUser.id,
@@ -50,8 +50,8 @@ function TeamsContainer({currentUser}) {
                     if (team.id === newTeamId) { 
                         return{
                             ...team,
-                            user_favorite_team: userFavoriteTeam
-                            // ,team: team.team
+                            team: favorite_team_name,
+                            user_favorite_team: userFavoriteTeam,
                             }
                         } else {
                             return team 
