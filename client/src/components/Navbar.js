@@ -12,7 +12,7 @@ function Navbar({handleLogout, currentUser}) {
                 <button onClick={handleLogout}>Logout</button>
             </div>
             <div>
-                <NavLink to="/teams" style={{marginRight: 45}}>Teams</NavLink>
+                <NavLink to="/favorite_teams" style={{marginRight: 45}}>Teams</NavLink>
                 <NavLink to="/myteams" style={{marginRight: 45}}>Favorite Teams</NavLink>
                 <NavLink to="/games">Games</NavLink>
             </div>

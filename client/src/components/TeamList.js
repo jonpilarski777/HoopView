@@ -8,7 +8,7 @@ function TeamList({teams}) {
             <h1> All D1 Teams </h1>
             {teams.map(team => (
                 <p>
-                    <Link to={`teams/${team.id}`}>
+                    <Link to={`favorite_teams/${team.id}`}>
                         {team.team_name}
                     </Link>
                 </p>

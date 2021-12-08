@@ -129,7 +129,7 @@ function TeamsContainer({currentUser}) {
             <Switch>
                 <Route 
                 exact 
-                path="/teams"
+                path="/favorite_teams"
                 >
                 <TeamList 
                 teams = {teams}
@@ -139,7 +139,7 @@ function TeamsContainer({currentUser}) {
                 </Route>            
                 <Route
                     exact
-                    path="/teams/:id"
+                    path="/favorite_teams/:id"
                     render={({match}) => {
                         return <TeamDetail
                             newTeamId={match.params.id}
