@@ -3,7 +3,7 @@ import {useHistory} from 'react-router-dom'
 import TeamStats from './TeamStats'
 import TeamSchedule from './TeamSchedule'
 
-function TeamDetail({teamId, addFavoriteTeam, removeFavoriteTeam}) {
+function TeamDetail({newTeamId, addFavoriteTeam, removeFavoriteTeam}) {
     
     const [team, setTeam] = useState(null)
     const [isFavorite, SetisFavorite] = useState(false)
@@ -18,12 +18,12 @@ function TeamDetail({teamId, addFavoriteTeam, removeFavoriteTeam}) {
     // }
 
     const fetchTeam = useCallback(() => {
-        fetch(`/api/favorite_teams/${teamId}`,  {
+        fetch(`/api/favorite_teams/${newTeamId}`,  {
             credentials: 'include',
         })
         .then(r => r.json())
         .then(team => setTeam(team))
-    }, [teamId])
+    }, [newTeamId])
 
     useEffect(() => {
         fetchTeam ()
@@ -38,7 +38,7 @@ function TeamDetail({teamId, addFavoriteTeam, removeFavoriteTeam}) {
         if (team.user_favorite_team) {
             return (
                 <button onClick ={() => {removeFavoriteTeam(team.id).then(() => fetchTeam()); handleFavorite()}}
-                > Remove {team.team_name}
+                > Remove {team.team}
                 </button>
             )
         } else {

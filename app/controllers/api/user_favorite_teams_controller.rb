@@ -42,7 +42,7 @@ class Api::UserFavoriteTeamsController < ApplicationController
     private
 
     def user_favorite_team_params
-        params.permit(:user_id, :favorite_team_id, :team)
+        params.permit(:user_id, :favorite_team_id, :team, :ranking)
     end
 
     #Use instance variable because we only want this method to be used inside this class

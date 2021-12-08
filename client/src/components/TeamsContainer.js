@@ -4,11 +4,9 @@ import TeamList from './TeamList'
 import TeamDetail from './TeamDetail'
 import MyTeams from './MyTeams'
 
-
 function TeamsContainer({currentUser}) {
     const [teams, setTeams] = useState([])
     const [myTeams, setMyTeams] = useState([])
-
 
     useEffect(() => {
         fetch('/api/favorite_teams', {
@@ -26,12 +24,12 @@ function TeamsContainer({currentUser}) {
         console.log("myTeams", myTeams)
     }, [teams])
 
-    const addFavoriteTeam = (team) => {
+    const addFavoriteTeam = (newTeamId) => {
         const newFav = {
-            team: team.team,
+            team: "",
             ranking: 1,
             user_id: currentUser.id,
-            favorite_team_id: team.id            
+            favorite_team_id: newTeamId,           
         }
         return fetch('/api/user_favorite_teams', {
             method: 'POST',
@@ -49,11 +47,11 @@ function TeamsContainer({currentUser}) {
             })
             .then(userFavoriteTeam => {
                 const updatedFavoriteTeams = teams.map((team) => {
-                    if (team.id === teamId) { 
+                    if (team.id === newTeamId) { 
                         return{
                             ...team,
                             user_favorite_team: userFavoriteTeam,
-                            team: team.team_name
+                            team: team.team
                             }
                         } else {
                             return team 
