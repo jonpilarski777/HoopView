@@ -24,7 +24,7 @@ function Signup({setCurrentUser}) {
           if (res.ok) {
             res.json().then(user => {
               setCurrentUser(user)
-              history.push('/favorite_teams')
+              history.push('/teams')
             })
           } else {
             res.json().then(errors => {
