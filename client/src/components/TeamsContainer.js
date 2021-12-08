@@ -7,6 +7,7 @@ import MyTeams from './MyTeams'
 function TeamsContainer({currentUser}) {
     const [teams, setTeams] = useState([])
     const [myTeams, setMyTeams] = useState([])
+    
 
     useEffect(() => {
         fetch('/api/favorite_teams', {
@@ -20,7 +21,7 @@ function TeamsContainer({currentUser}) {
             credentials: 'include' 
         })
         .then(r => r.json())
-        .then(myTeams =>setMyTeams(myTeams))
+        .then(myTeams => setMyTeams(myTeams))
         console.log("myTeams", myTeams)
     }, [teams])
 
@@ -58,6 +59,7 @@ function TeamsContainer({currentUser}) {
                 
                     })
                     setTeams(updatedFavoriteTeams)
+                 
                 })
             }
     const removeFavoriteTeam = (teamId) => {
@@ -139,9 +141,7 @@ function TeamsContainer({currentUser}) {
                     exact
                     path="/myteams"
                 >
-                   <MyTeams myTeams = {myTeams} />
-        {/* // updateFavoriteTeamRanking = {updateFavoriteTeamRanking} */}
-                /       
+                   <MyTeams currentUser = {currentUser} teams = {teams}/>
                </Route>
             </Switch>
             
