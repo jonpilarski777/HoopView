@@ -15,9 +15,9 @@ function MyTeams({currentUser, myTeams}) {
     //     console.log("myTeams", myTeams)}
     // , [])
 
-    const myFavsOnly = myTeams.filter((myTeam) => myTeam.user_id === currentUser.id)
+    // const myFavsOnly = myTeams.filter((myTeam) => myTeam.user_id === currentUser.id)
 
-    console.log("myFavsOnly", myFavsOnly)
+    // console.log("myFavsOnly", myFavsOnly)
 
 
     return (

@@ -38,11 +38,12 @@ function TeamsContainer({currentUser}) {
 
     const addFavoriteTeam = (newTeamId) => {
         const newFav = {
-            team: "",
+            team: teams[newTeamId-1].team_name,
             favorite_team_id: newTeamId,           
-            ranking: 1,
+            ranking: 2,
             user_id: currentUser.id,
         }
+      
         return fetch('/api/user_favorite_teams', {
             method: 'POST',
             headers: {
@@ -62,15 +63,14 @@ function TeamsContainer({currentUser}) {
                     if (team.id === newTeamId) { 
                         return{
                             ...team,
+                            // team: FavoriteTeam.team_name,
                             user_favorite_team: userFavoriteTeam,
                             }
                         } else {
                             return team 
                         }
-                
                     })
                     setTeams(updatedFavoriteTeams)
-                 
                 })
             }
     const removeFavoriteTeam = (teamId) => {
