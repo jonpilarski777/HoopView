@@ -1,9 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-// {useState, useEffect}
-function MyTeams({currentUser, myTeams}) {
-        // const [myTeams, setMyTeams] = useState([])
+function MyTeams({currentUser, myFavsOnly}) {
+    //     const [myTeams, setMyTeams] = useState([])
 
 
     //  useEffect(() => {
@@ -17,19 +16,19 @@ function MyTeams({currentUser, myTeams}) {
 
     // const myFavsOnly = myTeams.filter((myTeam) => myTeam.user_id === currentUser.id)
 
-    // console.log("myFavsOnly", myFavsOnly)
+    console.log("myFavsOnly in MyTeams component", myFavsOnly)
 
 
     return (
         <div>
         <h1> My Fav Teams </h1>
-        {myTeams.map(team => (
+        {/* {myTeams.map(team => (
             <p>
                 <Link to={`teams/${team.id}`}>
                   Testing
                 </Link>
             </p>
-        ))}
+        ))} */}
         </div>)
 }
 

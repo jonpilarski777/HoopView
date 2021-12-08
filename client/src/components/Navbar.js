@@ -9,14 +9,13 @@ function Navbar({handleLogout, currentUser}) {
         <>
             <div>
                 <p> Currently signed in as {currentUser.username}</p>
-                <NavLink to="/teams">Teams</NavLink>
-                <NavLink to="/myteams"> Favorite Teams</NavLink>
-                <NavLink to="/games">Games</NavLink>
-            </div>
-            <div>
                 <button onClick={handleLogout}>Logout</button>
             </div>
-
+            <div>
+                <NavLink to="/teams" style={{marginRight: 45}}>Teams</NavLink>
+                <NavLink to="/myteams" style={{marginRight: 45}}>Favorite Teams</NavLink>
+                <NavLink to="/games">Games</NavLink>
+            </div>
         </>
     )
 }
