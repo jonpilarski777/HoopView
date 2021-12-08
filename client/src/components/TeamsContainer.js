@@ -21,12 +21,19 @@ function TeamsContainer({currentUser}) {
             credentials: 'include' 
         })
         .then(r => r.json())
-        .then(myFavsOnly => { const userFavoriteList = myTeams.filter((myTeam) => myTeam.user_id !== currentUser.id)
-             setMyTeams(userFavoriteList)
-        })}, [teams])
+        .then(myTeams => setMyTeams(myTeams))}, [teams])
+            
+        //     myFavsOnly => { const userFavoriteList = myTeams.filter((myTeam) => myTeam.user_id !== currentUser.id)
+        //      setMyTeams(userFavoriteList)
+        // })}, [teams])
 
          
     console.log("myTeams", myTeams)
+
+    
+    const myFavsOnly = myTeams.filter((myTeam) => myTeam.user_id === currentUser.id)
+
+    console.log("myFavsOnly", myFavsOnly)
     //   const myFavsOnly = myTeams.filter((myTeam) => myTeam.user_id === currentUser.id)
 
     const addFavoriteTeam = (newTeamId) => {
