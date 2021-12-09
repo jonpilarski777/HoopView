@@ -11,6 +11,7 @@ function TeamList({teams}) {
                     <Link to={`favorite_teams/${team.id}`}>
                         {team.team_name}
                     </Link>
+                    <p>{team.Conf}</p>
                 </p>
             ))}
         </div>

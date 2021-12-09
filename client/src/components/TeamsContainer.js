@@ -6,35 +6,13 @@ import MyTeams from './MyTeams'
 
 function TeamsContainer({currentUser}) {
     const [teams, setTeams] = useState([])
-    const [myTeams, setMyTeams] = useState([])
-    
-
+   
     useEffect(() => {
         fetch('/api/favorite_teams', {
             credentials: 'include'
         })
         .then(r => r.json())
         .then(teams => setTeams(teams))}, [])
-
-    useEffect(() => {
-        fetch('/api/user_favorite_teams', {
-            credentials: 'include' 
-        })
-        .then(r => r.json())
-        .then(myTeams => setMyTeams(myTeams))}, [teams])
-            
-        //     myFavsOnly => { const userFavoriteList = myTeams.filter((myTeam) => myTeam.user_id !== currentUser.id)
-        //      setMyTeams(userFavoriteList)
-        // })}, [teams])
-
-         
-    console.log("myTeams", myTeams)
-
-    
-    const myFavsOnly = myTeams.filter((myTeam) => myTeam.user_id === currentUser.id)
-
-    console.log("myFavsOnly", myFavsOnly)
-    //   const myFavsOnly = myTeams.filter((myTeam) => myTeam.user_id === currentUser.id)
 
     const addFavoriteTeam = (newTeamId) => {
         const newFav = {
@@ -63,7 +41,6 @@ function TeamsContainer({currentUser}) {
                     if (team.id === newTeamId) { 
                         return{
                             ...team,
-                            // team: FavoriteTeam.team_name,
                             user_favorite_team: userFavoriteTeam,
                             }
                         } else {
@@ -152,7 +129,7 @@ function TeamsContainer({currentUser}) {
                     exact
                     path="/user_favorite_teams"
                 >
-                   <MyTeams currentUser = {currentUser} myFavsOnly= {myFavsOnly} />
+                   <MyTeams currentUser = {currentUser} teams= {teams} />
                </Route>
             </Switch>
             
