@@ -62,8 +62,8 @@ return (
                 />
               </p>
               <p><button type="submit">Log In</button></p>
-              <p>-- or --</p> 
-              <p><Link to="/signup">Sign Up</Link></p>
+              <p> First time on HoopView? </p> 
+              <p><Link to="/signup"> <button>Create an Account </button></Link></p>
           </form>         
     </div>
     )
