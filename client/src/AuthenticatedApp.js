@@ -38,7 +38,7 @@ function AuthenticatedApp({currentUser, setCurrentUser}) {
             <Route exact path="/user_favorite_teams">
                 <MyTeams currentUser={currentUser}/>
             </Route>
-            <Redirect to= "/favorite_teams" />
+            <Redirect to= "/" />
           </Switch>
         </>
       );
