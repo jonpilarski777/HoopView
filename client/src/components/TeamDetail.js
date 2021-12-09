@@ -56,7 +56,7 @@ function TeamDetail({newTeamId, addFavoriteTeam, removeFavoriteTeam}) {
             <h1> {team.team_name} </h1> 
             {addOrRemoveButton(team)} 
             <button onClick={() => backButton()}>Back</button>
-            {team.user_favorite_team ? <> <TeamSchedule team = {team}/> <TeamStats team = {team} />  </>: <div></div>}
+            {team.user_favorite_team ? <> <TeamSchedule newTeamId = {newTeamId} team = {team}/> <TeamStats team = {team} />  </>: <div></div>}
         </div>
     )
 }
