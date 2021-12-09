@@ -1,30 +1,38 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 
-function MyTeams({myFavsOnly}) {
-    //     const [myTeams, setMyTeams] = useState([])
+function MyTeams({teams, currentUser}) {
 
-    //  useEffect(() => {
-    //     fetch('/api/user_favorite_teams', {
-    //         credentials: 'include' 
-    //     })
-    //     .then(r => r.json())
-    //     .then(myTeams => setMyTeams(myTeams))
-    //     console.log("myTeams", myTeams)}
-    // , [])
+    const [myTeams, setMyTeams] = useState([])
 
-    // const myFavsOnly = myTeams.filter((myTeam) => myTeam.user_id === currentUser.id)
+    useEffect(() => {
+        fetch('/api/user_favorite_teams', {
+            credentials: 'include' 
+        })
+        .then(r => r.json())
+        .then(myTeams => setMyTeams(myTeams))}, [teams])
+            
+        //     myFavsOnly => { const userFavoriteList = myTeams.filter((myTeam) => myTeam.user_id !== currentUser.id)
+        //      setMyTeams(userFavoriteList)
+        // })}, [teams])
 
- 
+         
+    console.log("myTeams", myTeams)
+
+    
+    const myFavsOnly = myTeams.filter((myTeam) => myTeam.user_id === currentUser.id)
+
+    console.log("myFavsOnly", myFavsOnly)
+
 
 
     return (
         <div>
-        <h1> My Fav Teams </h1>
+     
         {myFavsOnly.map(team => (
                 <p>
-                    <Link to={`user_favorite_teams/${team.id}`}>
-                        {team.id}
+                    <Link to={`favorite_teams/${team.favorite_team_id}`}>
+                        {team.team}
                     </Link>
                 </p>
             ))}
