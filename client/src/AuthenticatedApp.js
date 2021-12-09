@@ -9,7 +9,6 @@ import {Switch, Route, Redirect, useHistory } from 'react-router-dom'
 function AuthenticatedApp({currentUser, setCurrentUser}) {
     const history = useHistory()  
 
-
     const handleLogout = () => {
         fetch(`/api/logout`, {
           method: 'DELETE',
@@ -33,7 +32,6 @@ function AuthenticatedApp({currentUser, setCurrentUser}) {
             <Route exact path="/favorite_teams">
                 <TeamsContainer currentUser={currentUser}/>
             </Route>
-          <span> </span>
             <Route exact path="/games">
                 <GamesContainer currentUser={currentUser}/>
             </Route>
@@ -48,3 +46,4 @@ function AuthenticatedApp({currentUser, setCurrentUser}) {
 }
 
 export default AuthenticatedApp;
+
