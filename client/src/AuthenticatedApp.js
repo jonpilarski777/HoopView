@@ -30,14 +30,14 @@ function AuthenticatedApp({currentUser, setCurrentUser}) {
             handleLogout={handleLogout}
           />
           <Switch>
-            <Route path="/favorite_teams">
+            <Route exact path="/favorite_teams">
                 <TeamsContainer currentUser={currentUser}/>
             </Route>
           <span> </span>
-            <Route path="/games">
+            <Route exact path="/games">
                 <GamesContainer currentUser={currentUser}/>
             </Route>
-            <Route path="/user_favorite_teams">
+            <Route exact path="/user_favorite_teams">
                 <MyTeams currentUser={currentUser}/>
             </Route>
             <Redirect to= "/favorite_teams" />

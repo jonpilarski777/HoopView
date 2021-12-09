@@ -1,15 +1,15 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
 function TeamSchedule({team}) {
-    // const[stats, setStats] = useState([])
+    const[schedule, setSchedule] = useState([])
     // const [sortedBy, setSortedBy] = useState(null)
     // const [ascending, setAscending] = useState(true)
 
 
-    
-    fetch(`http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/teams/9`)
+    useEffect(()=> {
+    fetch(`http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/teams/2000`)
     .then(r => r.json())
-    .then(schedule => console.log("schedule:", schedule.team.uid))
+    .then(schedule => setSchedule(schedule))}, [])
     // const[data, setData] = useState([])
     // const [sortedBy, setSortedBy] = useState(null)
     // const [ascending, setAscending] = useState(true)
@@ -25,10 +25,7 @@ function TeamSchedule({team}) {
     return (
         <div>
             <p>{team.team_name}'s Schedule: </p>
-            <table>
-                <tr></tr>
-
-            </table>
+            {/* <li> {schedule.team.uid}</li> */}
         </div>
     )
 }
