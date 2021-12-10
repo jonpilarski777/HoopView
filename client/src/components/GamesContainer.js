@@ -1,8 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import GameList from './GameList'
-
-
-
+import styled from 'styled-components'
 
 function GamesContainer({currentUser}) {
     const [games, setGames] = useState([])
@@ -28,8 +26,31 @@ function GamesContainer({currentUser}) {
     console.log("date:", currentDate)
 
 
-    return (<div> Current Time is {currentDate}<GameList events = {games.events} games = {games} currentDate={currentDate} />
-   </div>)   
+    return (<WholeDiv> <TitleDiv> Current Time is {currentDate}
+      </TitleDiv> <ContentDiv> <GameList events = {games.events} games = {games} /> </ContentDiv>   </WholeDiv>)
+    
+
 }
 
+
+const WholeDiv = styled.div`
+    margin-left:30px;
+    transition: all 5s ease-in-out;
+`
+
+const TitleDiv = styled.div`
+    color: #FFFF00;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
+`
+
+const ContentDiv = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
 export default GamesContainer

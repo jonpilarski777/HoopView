@@ -1,23 +1,42 @@
 import React from 'react'
+import styled from 'styled-components'
+
+
 
 function GameList({currentDate, games, events}) {
  
-    // const {events} = games
-    if (!games) {return <p>No games happening on {currentDate} </p>}
+    if (!events) {return <p>No games happening at this time: {currentDate} </p>}
     return (
         <div>
-            {events.map(event => (
-                <p>
-                    {event.dateEvent}
-                    {event.strAwayTeam}
-                    {event.strHomeTeam}
-                    {event.intAwayScore}
-                    {event.intHomeScore}
-                </p>
-            ))}
-        </div>
-    ) 
+                <TitleDiv> Date Away Home Score Status</TitleDiv>
+             {events.map(event => (
+                <ContentDiv>
+                    {event.dateEvent} {'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}
+                    {event.strAwayTeam} {'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}
+                    {event.strHomeTeam} {'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}
+                     {event.intAwayScore} {'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}
+                    {event.intHomeScore}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}
+                    {event.strStatus}
+                </ContentDiv>))}
+    
+        </div>)
+        
+
       
 }
+const TitleDiv = styled.div`
+    color: #FFFF00;
+    display: flex;
+    color: #ff0000;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
+`
 
+const ContentDiv = styled.div`
+    display: flex;
+    justify-content: center;
+`
 export default GameList
