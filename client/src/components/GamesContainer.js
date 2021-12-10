@@ -11,49 +11,25 @@ function GamesContainer({currentUser}) {
     
   useEffect(() => {fetch('https://www.thesportsdb.com/api/v2/json/50130162/livescore.php?s=Basketball&l=4607')
   .then(r =>r.json())
-  .then(games => {setGames(games)
+  .then(games  => {setGames(games)
   const date = new Date().getDate();
   const month = new Date().getMonth() + 1;
   const year = new Date().getFullYear();
-  const  formattedDate= month + '/' + date + '/' + year; 
+  const hour = new Date().getHours();
+  const minute = new Date().getMinutes();
+  const second = new Date().getSeconds();
+  const  formattedDate = month + '/' + date + '/' + year + " " + hour + ':' + minute + ":"  + second 
     setCurrentDate(formattedDate)})
 },[])
 
   console.log("games:", games)
+  console.log("events", games.events)
 
     console.log("date:", currentDate)
 
 
-    return (<div> Today is {currentDate}<GameList games = {games} currentDate={currentDate} />
+    return (<div> Current Time is {currentDate}<GameList events = {games.events} games = {games} currentDate={currentDate} />
    </div>)   
-//         (
-       
-                // /* //    
-//             date_create: moment().format("DD-MM-YYYY hh:mm:ss")
-// //             </Momentd> */}
-// //             <Switch>
-// //                 <Route
-// //                 exact
-// //                 path="/games"                
-// //                 >
-//                 <GameList 
-//                 games={games}
-//                 />
-//                 </Route>
-// //                 <Route
-// //                 exact
-// //                 path="/games/:id" 
-// //                 render= {({match}) => {
-// //                     return (
-// //                         <GameDetail
-// //                         games={games}
-// //                         />
-// //                     )
-// //                 }}               
-//                 />
-// //             </Switch>
-//         </div>
-//     ))
 }
 
 export default GamesContainer
