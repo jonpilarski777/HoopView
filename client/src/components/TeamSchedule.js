@@ -41,12 +41,38 @@ function TeamSchedule({newteamId, team}) {
            
 
 
+     let AllGames = schedule.events
+     console.log("AllGames:", AllGames)
+     
     return (
         <div>
             <p>{team.team_name}'s Schedule: </p>
-            {showSchedule(team)}
+            <p>{showSchedule(team)} </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th> Date </th>
+                        <th> Matchup </th>
+                     
+                    </tr>
+                </thead>
+                <tbody> {AllGames.map(eachgame => (
+                    <tr key={eachgame.id}>
+                        <td >{eachgame.date}</td>
+                        <td >{eachgame.name}</td>
+                      
+            
+                    </tr>
+                ))
+                    }
+                    
+                </tbody>
+            </table>
+
+
         </div>
     )
 }
-
 export default TeamSchedule
+
+

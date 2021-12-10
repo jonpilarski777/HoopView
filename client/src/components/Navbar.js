@@ -14,8 +14,11 @@ function Navbar({handleLogout, currentUser}) {
                 <NavLink to="/user_favorite_teams" style={{marginRight: 45}}>Favorite Teams</NavLink>
                 <NavLink to="/games">Games</NavLink>
             </ContentDiv>
+            <UserDiv>
+                <p style={{color: "black"}}> Welcome {currentUser.username} </p>
+            </UserDiv>
             <NavDiv>
-                <p> Currently signed in as {currentUser.username} <button onClick={handleLogout}>Logout</button></p>
+                <p> <button onClick={handleLogout}>Logout</button></p>
                 
             </NavDiv>
         </WholeDiv>
@@ -37,10 +40,18 @@ const WholeDiv = styled.div`
     background-color: #fff; 
     `
 
+const UserDiv = styled.div`
+margin-right:45;
+justify-content: center;
+display: flex;
+align-items: center;
+color: ffffff`
+
 const NavDiv = styled.div`
     justify-content: center;
     display: flex;
-    align-items: center;`
+    align-items: center;
+    color: ffffff`
 
 
 const ContentDiv = styled.div`
