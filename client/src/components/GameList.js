@@ -1,6 +1,6 @@
 import React from 'react'
 
-function GameList() {
+function GameList({currentDate}) {
     return (
         <div>
             
