@@ -10,9 +10,12 @@ function Navbar({handleLogout, currentUser}) {
         <WholeDiv>
            
             <ContentDiv>
+                <NavLink to="/home" style ={{marginRight: 45}}>Home</NavLink>
                 <NavLink to="/favorite_teams" style={{marginRight: 45}}>Teams</NavLink>
                 <NavLink to="/user_favorite_teams" style={{marginRight: 45}}>Favorite Teams</NavLink>
-                <NavLink to="/games">Games</NavLink>
+                <NavLink to="/games" style ={{marginRight: 45}}>Games</NavLink>
+                <NavLink to="/views" style ={{marginRight: 45}}>Views</NavLink>
+                <NavLink to="/players" style ={{marginRight: 45}}>Players</NavLink>
             </ContentDiv>
             <NavDiv>
                 <p> Currently signed in as {currentUser.username} <button onClick={handleLogout}>Logout</button></p>
