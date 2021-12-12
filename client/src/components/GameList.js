@@ -1,17 +1,26 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 
 
 
 function GameList({currentDate, games, events}) {
+
+    const [showLive, SetShowLive] = useState(false)
  
+    const handleToggle = () => {
+        SetShowLive(!showLive)
+    }
+
     if (!events) {return <p>No games happening at this time: {currentDate} </p>}
     return (
+        
         <div>
-                <TitleDiv> Date Away Home Score Status</TitleDiv>
+            <button onClick={handleToggle}> Live </button>
+                <TitleDiv> Date StartTime Away Home Score Status</TitleDiv>
              {events.map(event => (
                 <ContentDiv>
                     {event.dateEvent} {'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}
+                    {event.strEventTime} {'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}
                     {event.strAwayTeam} {'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}
                     {event.strHomeTeam} {'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}
                      {event.intAwayScore} {'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}{'   '}
