@@ -12,14 +12,17 @@ function Navbar({handleLogout, currentUser}) {
             <ContentDiv>
                 <NavLink to="/home" style ={{marginRight: 45}}>Home</NavLink>
                 <NavLink to="/favorite_teams" style={{marginRight: 45}}>Teams</NavLink>
-                <NavLink to="/user_favorite_teams" style={{marginRight: 45}}>Favorite Teams</NavLink>
+                <NavLink to="/user_favorite_teams" style={{marginRight: 45}}>My Teams</NavLink>
                 <NavLink to="/games" style ={{marginRight: 45}}>Games</NavLink>
                 <NavLink to="/views" style ={{marginRight: 45}}>Views</NavLink>
                 <NavLink to="/players" style ={{marginRight: 45}}>Players</NavLink>
+                <NavLink to="/blog" style ={{marginRight: 45}}>Blog</NavLink>
+                <NavLink to="/trends" style ={{marginRight: 45}}>Trends</NavLink>
+                <NavLink to="/faces" style ={{marginRight: 45}}>Faces</NavLink>
+                <NavLink to="/news" style ={{marginRight: 45}}>News</NavLink>
             </ContentDiv>
             <NavDiv>
                 <p> Currently signed in as {currentUser.username} <button onClick={handleLogout}>Logout</button></p>
-                
             </NavDiv>
         </WholeDiv>
     )

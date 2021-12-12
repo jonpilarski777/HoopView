@@ -15,7 +15,7 @@ function GameList({currentDate, games, events}) {
     return (
         
         <div>
-            <button onClick={handleToggle}> Live </button>
+            
                 <TitleDiv> Date StartTime Away Home Score Status</TitleDiv>
              {events.map(event => (
                 <ContentDiv>

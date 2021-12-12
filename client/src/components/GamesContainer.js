@@ -21,10 +21,9 @@ function GamesContainer({currentUser}) {
 },[])
 
   console.log("games:", games)
-  console.log("events", games.events)
+  console.log("games.events", games.events)
 
-    console.log("date:", currentDate)
-
+    
 
     return (<WholeDiv> <TitleDiv> Current Time is {currentDate}
       </TitleDiv> <ContentDiv> <GameList events = {games.events} games = {games} /> </ContentDiv>   </WholeDiv>)

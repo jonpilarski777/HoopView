@@ -1,0 +1,67 @@
+Future improvements:
+
+GamesView: 
+
+Allow default to not show any scores - then toggle to show SUBSET (filter or search)
+
+Integral of game with # of ties and time of lead data to illustrate close game 
+
+ThrillScore proxy; way to have multiple columns on one page (thrill scores for next 7 days)
+
+Attach video highlights (!!) using React Player
+
+////////////////////////////////////////////////////////////////
+
+HoopView: 
+
+5-8 teams compared in one window by basic W/L stats, future schedule, trends, and key players potentially (synergy sports?
+
+Filter teams based on recent trends but with my adjustment to value of those wins (was other team actually bad, degree of home court adv., other team had injuries or was dealing with bad momentum/distractions/etc)
+
+////////////////////////////////////////////////////////////////
+
+TeamView: 
+
+Player Rosters + player profiles (if not too much space)
+
+Average Height & Experience; potentially some way to incorporate recruiting class or incoming transfer rankings
+
+Static info: Arena info (capacity, ranking on KP), location , Use GoogleMaps API to get their exact location and make a map of it with modals, coach, team all time win/loss, Last 10 years performance (wins/losses), Last 5 coaches performance, Place in conference last 10 yrsm, last championship/best finish every
+
+Coach performance with conference record/finish, performance in conference tournament, recruiting class rank, # of NBA players
+
+
+KP rank proxy (maybe bartorvik or blended #; see how feasible it would be to make your own super basic model)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Fan Match Explanation:
+https://kenpom.com/blog/introducing-fanmatch/
