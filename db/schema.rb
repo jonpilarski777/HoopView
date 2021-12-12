@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_08_034844) do
+ActiveRecord::Schema.define(version: 2021_12_12_170153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2021_12_08_034844) do
     t.integer "daily_game_id"
     t.integer "espn_id"
     t.string "Conf"
+    t.integer "sports_db_id"
     t.index ["team_name"], name: "index_favorite_teams_on_team_name"
   end
 

@@ -4,9 +4,15 @@ GamesView:
 
 Allow default to not show any scores - then toggle to show SUBSET (filter or search)
 
+Number of Games Count at top
+
+Number of Quality games count
+
 Integral of game with # of ties and time of lead data to illustrate close game 
 
 ThrillScore proxy; way to have multiple columns on one page (thrill scores for next 7 days)
+
+TV/broadcast info
 
 Attach video highlights (!!) using React Player
 
@@ -32,6 +38,14 @@ Coach performance with conference record/finish, performance in conference tourn
 
 
 KP rank proxy (maybe bartorvik or blended #; see how feasible it would be to make your own super basic model)
+
+////////////////////////////////////////////////////////////////    
+
+WinsView
+
+Standings 
+
+
 
 
 
