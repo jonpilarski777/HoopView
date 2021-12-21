@@ -11,7 +11,7 @@ const ActualTable = ({data, columns}) => {
         prepareRow,
         } = useTable({
         columns,
-        data,
+        data
         })
         
     return (
@@ -20,18 +20,22 @@ const ActualTable = ({data, columns}) => {
             {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map(column => (
-                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                <th {...column.getHeaderProps()}>
+                    {column.render('Header')}
+                    </th>
                 ))}
             </tr>
             ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-            {rows.map((row, i) => {
+            {rows.map((row) => {
             prepareRow(row)
             return (
                 <tr {...row.getRowProps()}>
                 {row.cells.map(cell => {
-                    return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                    return <td {...cell.getCellProps()}>
+                        {cell.render('Cell')}
+                    </td>
                 })}
                 </tr>
             )

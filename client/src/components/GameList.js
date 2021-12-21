@@ -14,8 +14,7 @@ function GameList({currentDate, games, events}) {
     if (!events) {return <p>No games happening at this time: {currentDate} </p>}
     return (
         
-        <div>
-            
+        <div> 
                 <TitleDiv> Date StartTime Away Home Score Status</TitleDiv>
              {events.map(event => (
                 <ContentDiv>

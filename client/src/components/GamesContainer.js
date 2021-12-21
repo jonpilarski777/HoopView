@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
-import GameList from './GameList'
+// import GameList from './GameList'
+import GameTable from './GameTable'
 import styled from 'styled-components'
 
 function GamesContainer({currentUser}) {
@@ -24,11 +25,14 @@ function GamesContainer({currentUser}) {
   console.log("games.events", games.events)
 
     
-
-    return (<WholeDiv> <TitleDiv> Current Time is {currentDate}
-      </TitleDiv> <ContentDiv> <GameList events = {games.events} games = {games} /> </ContentDiv>   </WholeDiv>)
-    
-
+ //Table with minimal formatting - want to be able to use ReactTable: 
+//   return (<WholeDiv> <TitleDiv> Current Time is {currentDate}
+//     </TitleDiv> <ContentDiv> <GameList events = {games.events} games = {games} /> </ContentDiv>   </WholeDiv>)
+  
+  //Table using ReactTable:
+  return (<WholeDiv> <TitleDiv> Current Time is {currentDate}
+    </TitleDiv> <ContentDiv> <GameTable events = {games.events} games = {games} /> </ContentDiv>   </WholeDiv>)
+  
 }
 
 

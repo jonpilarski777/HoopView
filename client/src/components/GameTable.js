@@ -1,25 +1,28 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useMemo} from 'react'
 import ActualTable from './ActualTable'
 
+
 function GameTable({games, events}) {
+
+ 
 
     const [data, setData] = useState(null)
 
     useEffect(() =>{
-        const data2 = [...games].map(event => {
-            return({
+        const data2 = [...events].map(event => {
+           return({
                 dateEvent: event.dateEvent,
-                strAwayTeam: event.strAwayTeam,
-                strHomeTeam: event.strHomeTeam,
+                 strAwayTeam: event.strAwayTeam, strHomeTeam: event.strHomeTeam,
                 intAwayScore: event.intAwayScore,
                 intHomeScore: event.intHomeScore,
-               
+                strStatus: event.strStatus,
+                })
             })
-        })
+        
         setData(data2)
-        }, [games])
+        }, [events])
 
-        const columns = [
+const columns = [
             {
                 Header: 'Date',
                 accessor: 'dateEvent'
@@ -40,8 +43,10 @@ function GameTable({games, events}) {
                 Header: 'HomeScore',
                 accessor: 'intHomeScore'
             },
+                {Header: 'Status',
+                 accessor: 'strStatus'},
         ]
-    
+
 
     return (
         <div>

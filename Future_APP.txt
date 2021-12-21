@@ -1,6 +1,8 @@
 Future improvements:
 
-GamesView: 
+GamesView:
+
+Covid tracker
 
 Allow default to not show any scores - then toggle to show SUBSET (filter or search)
 
@@ -45,6 +47,8 @@ WinsView
 
 Standings 
 
+
+Twitter API for news
 
 
 
